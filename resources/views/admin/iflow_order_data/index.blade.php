@@ -42,17 +42,10 @@
 											<tr>
 												<?php #dd($datos); ?>
 												<td>
-													<div class="row no-gutters">
-														<div class="col-auto">
-															<a class="btn btn-sm btn-spinner btn-info" href="{{ url('orders_detail/'.$datos->id) }}" title="Webhooks" role="button" style="margin-right: 5px;">
-																<i class="fa fa-anchor" aria-hidden="true"></i>
-															</a>
-														</div>
-														<div class="col-auto">
-															<a class="btn btn-sm btn-spinner btn-info" href="{{ url('orders_detail/'.$datos->order_id) }}" title="Carrier Services" role="button">
-																<i class="fa fa-eye" aria-hidden="true"></i>
-															</a>
-														</div>
+													<div class="col-auto">
+														<a class="btn btn-sm btn-spinner btn-info" href="{{ url('orders_detail/'.$datos->order_id) }}" title="Carrier Services" role="button">
+															<i class="fa fa-eye" aria-hidden="true"></i>
+														</a>
 													</div>
 												</td>
 												<td>{{ $datos->order_id }}</td>

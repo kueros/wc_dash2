@@ -12,10 +12,10 @@
 <div class="row">
 	<div class="col-lg-6 col-6">
 
-		<div class="small-box bg-info">
+		<div class="small-box bg-danger">
 			<div class="inner">
 				<h3>3</h3>
-				<p>Ordenes del mes</p>
+				<p>Ordenes del mes1</p>
 			</div>
 			<div class="icon">
 				<i class="ion ion-bag"></i>
@@ -26,7 +26,7 @@
 
 	<div class="col-lg-6 col-6">
 
-		<div class="small-box bg-success">
+		<div class="small-box bg-danger">
 			<div class="inner">
 				<h3>5<sup style="font-size: 20px">%</sup></h3>
 				<p>Ordenes Creadas</p>
@@ -40,7 +40,7 @@
 
 	<div class="col-lg-6 col-6">
 
-		<div class="small-box bg-warning">
+		<div class="small-box bg-danger">
 			<div class="inner">
 				<h3>12</h3>
 				<p>Ordenes Procesadas</p>
@@ -54,7 +54,7 @@
 
 	<div class="col-lg-6 col-6">
 
-		<div class="small-box bg-dangerå">
+		<div class="small-box bg-danger">
 			<div class="inner">
 				<h3>3</h3>
 				<p>Ordenes no procesadas</p>
