@@ -21,12 +21,20 @@
                     <div class="card-body bg-white">
                         
                                 <div class="form-group mb-2 mb20">
+                                    <strong>Apellido:</strong>
+                                    {{ $user->apellido }}
+                                </div>
+                                <div class="form-group mb-2 mb20">
                                     <strong>Name:</strong>
                                     {{ $user->name }}
                                 </div>
                                 <div class="form-group mb-2 mb20">
                                     <strong>Email:</strong>
                                     {{ $user->email }}
+                                </div>
+                                <div class="form-group mb-2 mb20">
+                                    <strong>Estado:</strong>
+                                    {{ $user->estado }}
                                 </div>
 
                     </div>

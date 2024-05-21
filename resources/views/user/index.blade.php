@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('template_title')
-User2S
+Usuarios
 @endsection
 
 @section('content')
@@ -13,7 +13,7 @@ User2S
 					<div style="display: flex; justify-content: space-between; align-items: center;">
 
 						<span id="card_title">
-							{{ __('User2S') }}
+							{{ __('Usuarios') }}
 						</span>
 
 						<!--div class="float-right">
@@ -34,31 +34,23 @@ User2S
 						<table class="table table-striped table-hover">
 							<thead class="thead">
 								<tr>
-									<th>No</th>
-
+									<th>Acciones</th>
 									<th>Name</th>
+									<th>Apellido</th>
+									<th>Estado</th>
 									<th>Email</th>
-
-									<th></th>
 								</tr>
 							</thead>
 							<tbody>
 								@foreach ($users as $user)
 								<tr>
-									<td>{{ ++$i }}</td>
-
-									<td>{{ $user->name }}</td>
-									<td>{{ $user->email }}</td>
-
 									<td>
-										<form action="{{ route('users.destroy', $user->id) }}" method="POST">
-											<a class="btn btn-sm btn-primary " href="{{ route('users.show', $user->id) }}"><i class="fa fa-fw fa-eye"></i> {{ __('Show') }}</a>
-											<a class="btn btn-sm btn-success" href="{{ route('users.edit', $user->id) }}"><i class="fa fa-fw fa-edit"></i> {{ __('Edit') }}</a>
-											@csrf
-											@method('DELETE')
-											<button type="submit" class="btn btn-danger btn-sm" onclick="event.preventDefault(); confirm('Are you sure to delete?') ? this.closest('form').submit() : false;"><i class="fa fa-fw fa-trash"></i> {{ __('Delete') }}</button>
-										</form>
+										<a class="btn btn-sm btn-primary " href="{{ route('users.show', $user->id) }}"><i class="fa fa-fw fa-eye"></i></a>
 									</td>
+									<td>{{ $user->name }}</td>
+									<td>{{ $user->apellido }}</td>
+									<td>{{ $user->estado }}</td>
+									<td>{{ $user->email }}</td>
 								</tr>
 								@endforeach
 							</tbody>
