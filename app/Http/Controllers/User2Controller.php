@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\User2;
+use App\Models\User;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use App\Http\Requests\User2Request;
@@ -16,7 +16,7 @@ class User2Controller extends Controller
      */
     public function index(Request $request): View
     {
-        $user2s = User2::paginate();
+        $user2s = User::paginate();
 
         return view('user2.index', compact('user2s'))
             ->with('i', ($request->input('page', 1) - 1) * $user2s->perPage());
@@ -27,7 +27,7 @@ class User2Controller extends Controller
      */
     public function create(): View
     {
-        $user2 = new User2();
+        $user2 = new User();
 
         return view('user2.create', compact('user2'));
     }
@@ -37,7 +37,7 @@ class User2Controller extends Controller
      */
     public function store(User2Request $request): RedirectResponse
     {
-        User2::create($request->validated());
+        User::create($request->validated());
 
         return Redirect::route('user2s.index')
             ->with('success', 'User2 created successfully.');
@@ -48,7 +48,7 @@ class User2Controller extends Controller
      */
     public function show($id): View
     {
-        $user2 = User2::find($id);
+        $user2 = User::find($id);
 
         return view('user2.show', compact('user2'));
     }
@@ -58,7 +58,7 @@ class User2Controller extends Controller
      */
     public function edit($id): View
     {
-        $user2 = User2::find($id);
+        $user2 = User::find($id);
 
         return view('user2.edit', compact('user2'));
     }
@@ -66,7 +66,7 @@ class User2Controller extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(User2Request $request, User2 $user2): RedirectResponse
+    public function update(User2Request $request, User $user2): RedirectResponse
     {
         $user2->update($request->validated());
 
@@ -76,7 +76,7 @@ class User2Controller extends Controller
 
     public function destroy($id): RedirectResponse
     {
-        User2::find($id)->delete();
+        User::find($id)->delete();
 
         return Redirect::route('user2s.index')
             ->with('success', 'User2 deleted successfully');

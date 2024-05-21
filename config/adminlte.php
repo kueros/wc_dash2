@@ -337,20 +337,20 @@ return [
 		],
 		[
 			'text' => 'users',
-			'url' => 'iflow_orders_data',
+			'url' => 'users',
 			'icon' => 'fas fa-fw fa-user',
 		],
 		[
 			'text' => 'states',
-			'url' => 'iflow_orders_data',
+			'url' => 'states',
 			'icon' => 'fas fa-tasks',
 		],
-		[
+		/*		[
 			'text' => 'settings',
 			'url' => 'iflow_orders_data',
 			'icon' => 'fas fa-cogs',
 		],
-		/*        [
+        [
             'text' => 'profile',
             'url' => 'admin/settings',
             'icon' => 'fas fa-fw fa-user',

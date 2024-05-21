@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\StateController;
 use App\Http\Controllers\User2Controller;
+use App\Http\Controllers\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,10 +14,14 @@ use App\Http\Controllers\User2Controller;
 | routes are loaded by the RouteServiceProvider and all of them will
 | be assigned to the "web" middleware group. Make something great!
 |
-*/
 
 Route::get('/', function () {
     return view('welcome');
+});
+*/
+
+Route::get('/', function () {
+	return view('auth.login');
 });
 
 Auth::routes();
@@ -29,7 +34,7 @@ Auth::routes();
 
 Route::resource('states', StateController::class);
 
-Route::resource('user2s', User2Controller::class);
+Route::resource('users', UserController::class);
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
