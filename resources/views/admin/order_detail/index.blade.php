@@ -32,7 +32,7 @@
                             <p class="card-text"><strong> Tracking ID:</strong> {{ $data->tracking_id }}</p>
                             <p class="card-text"><strong> Estado:</strong> {{ $data->financial_status }}</p>
                             <p class="card-text"><strong> Nombre:</strong> {{ $data->name }}</p>
-                            <!--a href="#" class="btn btn-primary">Go somewhere</a-->
+                            <!--a href="#" class="btn btn-warning">Go somewhere</a-->
                         </div>
                     </div>
                 </div>
@@ -43,7 +43,7 @@
                         </div>
                         <div class="card-body">
                             <h4 class="card-text"><strong> Pagado:</strong> {{ $data->financial_status ?? 'No paid' }}</h4>
-                            <!--a href="#" class="btn btn-primary">Go somewhere</a-->
+                            <!--a href="#" class="btn btn-warning">Go somewhere</a-->
                         </div>
                     </div>
                 </div>
@@ -74,7 +74,7 @@
                             <h4 class="card-text"><strong> País:</strong> {{ $data->country }}</h4>
                             <h4 class="card-text"><strong> Cód.Provincia:</strong> {{ $data->province_code }}</h4>
                             <h4 class="card-text"><strong> Notas:</strong> {{ $data->notes }}</h4>
-                            <!--a href="#" class="btn btn-primary">Go somewhere</a-->
+                            <!--a href="#" class="btn btn-warning">Go somewhere</a-->
                         </div>
                     </div>
                 </div>

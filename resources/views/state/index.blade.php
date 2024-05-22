@@ -10,15 +10,15 @@ States
 		<div class="col-sm-12">
 			<div class="card">
 				<div class="card-header">
-					<div style="display: flex; justify-content: space-between; align-items: center;">
-						<div class="float-right">
-							<a href="{{ route('states.create') }}" class="btn btn-warning btn-sm float-right" data-placement="left">
+					<div style=" justify-content: space-between; align-items: center;">
+						<p id="card_title">
+							{{ __('Estados') }}
+						</p>
+						<div class="float-left">
+							<a href="{{ route('states.create') }}" class="btn btn-warning btn-sm float-left" data-placement="left">
 								{{ __('Nuevo') }}
 							</a>
 						</div>
-						<span id="card_title">
-							{{ __('Estados') }}
-						</span>
 					</div>
 				</div>
 				@if ($message = Session::get('success'))

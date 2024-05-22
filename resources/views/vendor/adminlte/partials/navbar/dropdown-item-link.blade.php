@@ -16,7 +16,7 @@
 
         {{-- Label (optional) --}}
         @isset($item['label'])
-            <span class="badge badge-{{ $item['label_color'] ?? 'primary' }}">
+            <span class="badge badge-{{ $item['label_color'] ?? 'warning' }}">
                 {{ $item['label'] }}
             </span>
         @endisset
