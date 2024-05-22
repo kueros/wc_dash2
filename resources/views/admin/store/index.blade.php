@@ -10,7 +10,6 @@
 {{-- Content body: main page content --}}
 
 @section('content_body')
-    <p>Welcome to this beautiful admin panel.</p>
 		<main class="main">
 			<div class="container-fluid" id="app" :class="{'loading': loading}">
 				<div class="modals">
@@ -39,12 +38,12 @@
 												<td>
 													<div class="row no-gutters">
 														<div class="col-auto">
-															<a class="btn btn-sm btn-spinner btn-info" href="{{ url('webhooks/'.$datos->id) }}" title="Webhooks" role="button" style="margin-right: 5px;">
+															<a class="btn btn-sm btn-spinner btn-warning" href="{{ url('webhooks/'.$datos->id) }}" title="Webhooks" role="button" style="margin-right: 5px;">
 																<i class="fa fa-anchor" aria-hidden="true"></i>
 															</a>
 														</div>
 														<div class="col-auto">
-															<a class="btn btn-sm btn-spinner btn-info" href="{{ url('carriers/'.$datos->id) }}" title="Carrier Services" role="button">
+															<a class="btn btn-sm btn-spinner btn-warning" href="{{ url('carriers/'.$datos->id) }}" title="Carrier Services" role="button">
 																<i class="fa fa-truck" aria-hidden="true"></i>
 															</a>
 														</div>

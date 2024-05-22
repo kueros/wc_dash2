@@ -11,10 +11,10 @@
                 <div class="card">
                     <div class="card-header" style="display: flex; justify-content: space-between; align-items: center;">
                         <div class="float-left">
-                            <span class="card-title">{{ __('Show') }} State</span>
+                            <span class="card-title">{{ __('Mostrar') }} Estados</span>
                         </div>
                         <div class="float-right">
-                            <a class="btn btn-primary btn-sm" href="{{ route('states.index') }}"> {{ __('Back') }}</a>
+                            <a class="btn btn-warning btn-sm" href="{{ route('states.index') }}"> {{ __('Back') }}</a>
                         </div>
                     </div>
 

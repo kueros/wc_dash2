@@ -13,7 +13,7 @@
             <i class="fas fa-angle-left right"></i>
 
             @isset($item['label'])
-                <span class="badge badge-{{ $item['label_color'] ?? 'primary' }} right">
+                <span class="badge badge-{{ $item['label_color'] ?? 'warning' }} right">
                     {{ $item['label'] }}
                 </span>
             @endisset

@@ -11,7 +11,7 @@
 
                 <div class="card card-default">
                     <div class="card-header">
-                        <span class="card-title">{{ __('Update') }} State</span>
+                        <span class="card-title">{{ __('Editar') }} Estados</span>
                     </div>
                     <div class="card-body bg-white">
                         <form method="POST" action="{{ route('states.update', $state->id) }}"  role="form" enctype="multipart/form-data">

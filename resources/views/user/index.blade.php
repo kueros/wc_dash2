@@ -45,7 +45,7 @@ Usuarios
 								@foreach ($users as $user)
 								<tr>
 									<td>
-										<a class="btn btn-sm btn-primary " href="{{ route('users.show', $user->id) }}"><i class="fa fa-fw fa-eye"></i></a>
+										<a class="btn btn-sm btn-warning " href="{{ route('users.show', $user->id) }}"><i class="fa fa-fw fa-eye"></i></a>
 									</td>
 									<td>{{ $user->name }}</td>
 									<td>{{ $user->apellido }}</td>
