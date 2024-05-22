@@ -25,10 +25,11 @@ Route::get('/', function () {
 });
 
 Auth::routes();
-
+/*
 Route::get('/home', function() {
     return view('home');
 })->name('home')->middleware('auth');
+*/
 
 Auth::routes();
 
@@ -44,15 +45,15 @@ Route::prefix('stores')->namespace('App\Http\Controllers')->name('stores/')->mid
 
 
 Route::prefix('webhooks')->namespace('App\Http\Controllers')->name('webhooks/')->middleware('auth')->group(static function() {
-	Route::get('/{id}',                                             'WebhooksController@index')->name('index');
+	Route::get('/{id}', 'WebhooksController@index')->name('index');
 });
 
 Route::prefix('carriers')->namespace('App\Http\Controllers')->name('carriers/')->middleware('auth')->group(static function() {
-	Route::get('/{id}',                                             'CarriersController@index')->name('index');
+	Route::get('/{id}', 'CarriersController@index')->name('index');
 });
 
 Route::prefix('iflow_orders_data')->namespace('App\Http\Controllers')->name('iflow_orders_data/')->middleware('auth')->group(static function() {
-	Route::get('/',                                             'IflowOrdersDataController@index')->name('index');
+	Route::get('/', 'IflowOrdersDataController@index')->name('index');
 });
 
 Route::prefix('orders_detail')->namespace('App\Http\Controllers')->name('orders_detail/')->middleware('auth')->group(static function() {

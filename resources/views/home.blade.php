@@ -10,9 +10,9 @@
 
 @section('content_body')
 <div class="row">
-	<div class="col-lg-6 col-6">
+	<div class="col-lg-3 col-3">
 
-		<div class="small-box bg-danger">
+		<div class="small-box bg-default">
 			<div class="inner">
 				<h3>3</h3>
 				<p>Ordenes del mes1</p>
@@ -24,9 +24,9 @@
 		</div>
 	</div>
 
-	<div class="col-lg-6 col-6">
+	<div class="col-lg-3 col-3">
 
-		<div class="small-box bg-danger">
+		<div class="small-box bg-default">
 			<div class="inner">
 				<h3>5<sup style="font-size: 20px">%</sup></h3>
 				<p>Ordenes Creadas</p>
@@ -38,9 +38,9 @@
 		</div>
 	</div>
 
-	<div class="col-lg-6 col-6">
+	<div class="col-lg-3 col-3">
 
-		<div class="small-box bg-danger">
+		<div class="small-box bg-default">
 			<div class="inner">
 				<h3>12</h3>
 				<p>Ordenes Procesadas</p>
@@ -52,9 +52,9 @@
 		</div>
 	</div>
 
-	<div class="col-lg-6 col-6">
+	<div class="col-lg-3 col-3">
 
-		<div class="small-box bg-danger">
+		<div class="small-box bg-default">
 			<div class="inner">
 				<h3>3</h3>
 				<p>Ordenes no procesadas</p>
