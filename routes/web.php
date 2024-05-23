@@ -4,6 +4,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\StateController;
 use App\Http\Controllers\User2Controller;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\ConfigController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -36,6 +38,8 @@ Auth::routes();
 Route::resource('states', StateController::class);
 
 Route::resource('users', UserController::class);
+
+Route::resource('configs', ConfigController::class);
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
