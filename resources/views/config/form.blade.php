@@ -2,22 +2,22 @@
     <div class="col-md-12">
         
         <div class="form-group mb-2 mb20">
-            <label for="urlroot" class="form-label">{{ __('Urlroot') }}</label>
+            <label for="urlroot" class="form-label">{{ __('Url Root') }}</label>
             <input type="text" name="urlroot" class="form-control @error('urlroot') is-invalid @enderror" value="{{ old('urlroot', $config?->urlroot) }}" id="urlroot" placeholder="Urlroot">
             {!! $errors->first('urlroot', '<div class="invalid-feedback" role="alert"><strong>:message</strong></div>') !!}
         </div>
         <div class="form-group mb-2 mb20">
-            <label for="cli_id" class="form-label">{{ __('Cli Id') }}</label>
+            <label for="cli_id" class="form-label">{{ __('Shopify Client Id') }}</label>
             <input type="text" name="cli_id" class="form-control @error('cli_id') is-invalid @enderror" value="{{ old('cli_id', $config?->cli_id) }}" id="cli_id" placeholder="Cli Id">
             {!! $errors->first('cli_id', '<div class="invalid-feedback" role="alert"><strong>:message</strong></div>') !!}
         </div>
         <div class="form-group mb-2 mb20">
-            <label for="cli_pass" class="form-label">{{ __('Cli Pass') }}</label>
+            <label for="cli_pass" class="form-label">{{ __('Shopify Client Secret') }}</label>
             <input type="text" name="cli_pass" class="form-control @error('cli_pass') is-invalid @enderror" value="{{ old('cli_pass', $config?->cli_pass) }}" id="cli_pass" placeholder="Cli Pass">
             {!! $errors->first('cli_pass', '<div class="invalid-feedback" role="alert"><strong>:message</strong></div>') !!}
         </div>
         <div class="form-group mb-2 mb20">
-            <label for="re_dir_url" class="form-label">{{ __('Re Dir Url') }}</label>
+            <label for="re_dir_url" class="form-label">{{ __('Url de Redirección') }}</label>
             <input type="text" name="re_dir_url" class="form-control @error('re_dir_url') is-invalid @enderror" value="{{ old('re_dir_url', $config?->re_dir_url) }}" id="re_dir_url" placeholder="Re Dir Url">
             {!! $errors->first('re_dir_url', '<div class="invalid-feedback" role="alert"><strong>:message</strong></div>') !!}
         </div>
@@ -52,12 +52,12 @@
             {!! $errors->first('webhook_address_orders_cancelled', '<div class="invalid-feedback" role="alert"><strong>:message</strong></div>') !!}
         </div>
         <div class="form-group mb-2 mb20">
-            <label for="api_u" class="form-label">{{ __('Api U') }}</label>
+            <label for="api_u" class="form-label">{{ __('Api Iflow User') }}</label>
             <input type="text" name="api_u" class="form-control @error('api_u') is-invalid @enderror" value="{{ old('api_u', $config?->api_u) }}" id="api_u" placeholder="Api U">
             {!! $errors->first('api_u', '<div class="invalid-feedback" role="alert"><strong>:message</strong></div>') !!}
         </div>
         <div class="form-group mb-2 mb20">
-            <label for="api_p" class="form-label">{{ __('Api P') }}</label>
+            <label for="api_p" class="form-label">{{ __('Api Iflow Password') }}</label>
             <input type="text" name="api_p" class="form-control @error('api_p') is-invalid @enderror" value="{{ old('api_p', $config?->api_p) }}" id="api_p" placeholder="Api P">
             {!! $errors->first('api_p', '<div class="invalid-feedback" role="alert"><strong>:message</strong></div>') !!}
         </div>
@@ -69,6 +69,6 @@
 
     </div>
     <div class="col-md-12 mt20 mt-2">
-        <button type="submit" class="btn btn-primary">{{ __('Submit') }}</button>
+        <button type="submit" class="btn btn-primary">{{ __('Guardar') }}</button>
     </div>
 </div>

@@ -13,7 +13,7 @@ return [
 	'zip' => 'Códigos Postales',
 	'sellers' => 'Vendedores',
 	'states' => 'Estados',
-	'settings' => 'Configuracón',
+	'settings' => 'Configuración',
 	'profile' => 'Perfil',
 	'change_password' => 'Cambiar Contraseña',
 	'stores' => 'Tiendas',

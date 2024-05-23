@@ -21,19 +21,19 @@
                     <div class="card-body bg-white">
                         
                                 <div class="form-group mb-2 mb20">
-                                    <strong>Urlroot:</strong>
+                                    <strong>Url Root:</strong>
                                     {{ $config->urlroot }}
                                 </div>
                                 <div class="form-group mb-2 mb20">
-                                    <strong>Cli Id:</strong>
+                                    <strong>Shopify Client Id:</strong>
                                     {{ $config->cli_id }}
                                 </div>
                                 <div class="form-group mb-2 mb20">
-                                    <strong>Cli Pass:</strong>
+                                    <strong>Shopify Client Secret:</strong>
                                     {{ $config->cli_pass }}
                                 </div>
                                 <div class="form-group mb-2 mb20">
-                                    <strong>Re Dir Url:</strong>
+                                    <strong>Url de Redirección:</strong>
                                     {{ $config->re_dir_url }}
                                 </div>
                                 <div class="form-group mb-2 mb20">
@@ -61,11 +61,11 @@
                                     {{ $config->webhook_address_orders_cancelled }}
                                 </div>
                                 <div class="form-group mb-2 mb20">
-                                    <strong>Api U:</strong>
+                                    <strong>Api Iflow User:</strong>
                                     {{ $config->api_u }}
                                 </div>
                                 <div class="form-group mb-2 mb20">
-                                    <strong>Api P:</strong>
+                                    <strong>Api Iflow Password:</strong>
                                     {{ $config->api_p }}
                                 </div>
                                 <div class="form-group mb-2 mb20">

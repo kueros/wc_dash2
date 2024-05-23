@@ -345,6 +345,11 @@ return [
 			'url' => 'states',
 			'icon' => 'fas fa-tasks',
 		],
+        [
+            'text' => 'settings',
+            'url' => 'configs',
+            'icon' => 'fas fa-cogs',
+        ],
 
 
 		/*		[
