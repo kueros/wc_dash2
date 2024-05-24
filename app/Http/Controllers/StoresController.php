@@ -19,6 +19,8 @@ use Illuminate\Http\Response;
 use Illuminate\Routing\Redirector;
 use Illuminate\Support\Facades\DB;
 use Illuminate\View\View;
+use Illuminate\Support\Facades\Auth;
+use App\Models\User;
 
 class StoresController extends Controller
 {
@@ -30,10 +32,17 @@ class StoresController extends Controller
      * @return array|Factory|View
      */
 
-    public function index() {
+    public function index() 
+    {
+        $id = Auth::id();
+        $user_cli_id = User::where('id', $id)
+        ->select('cli_id')
+        ->first();
+        $cli_id = $user_cli_id->cli_id;
 
         $data = 
-                Store::select(  'stores.id', 
+                Store::where('cli_id', $cli_id)
+                    ->select(  'stores.id', 
                                 'stores.token', 
                                 'stores.code', 
                                 'stores.cuit', 

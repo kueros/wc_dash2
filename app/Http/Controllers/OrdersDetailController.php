@@ -37,7 +37,8 @@ class OrdersDetailController extends Controller
 			IflowOrderData::select(
 				'iflow_order_data.id',
 				'iflow_order_data.order_id',
-				'iflow_order_data.tracking_id',
+                'iflow_order_data.cli_id',
+                'iflow_order_data.tracking_id',
 				'iflow_order_data.shipment_id',
 				'iflow_order_data.print_url',
 				'iflow_order_data.code',
