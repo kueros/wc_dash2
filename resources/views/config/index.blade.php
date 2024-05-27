@@ -31,24 +31,20 @@ Configs
                                     <th></th>
                                     <th>Url Root</th>
                                     <th>Shopify Client Id</th>
-                                    <th>Api Iflow User</th>
-                                    <th>Api Iflow Password</th>
-                                    <th>Shop Test</th>
+                                    <th>Shopify Client Secret</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 @foreach ($configs as $config)
                                 <tr>
                                     <td>
-                                            <a class="btn btn-sm btn-primary " href="{{ route('configs.show', $config->id) }}"><i class="fa fa-fw fa-eye"></i></a>
-                                            <a class="btn btn-sm btn-success" href="{{ route('configs.edit', $config->id) }}"><i class="fa fa-fw fa-edit"></i></a>
-                                            @csrf
+                                        <a class="btn btn-sm btn-primary " href="{{ route('configs.show', $config->id) }}"><i class="fa fa-fw fa-eye"></i></a>
+                                        <a class="btn btn-sm btn-success" href="{{ route('configs.edit', $config->id) }}"><i class="fa fa-fw fa-edit"></i></a>
+                                        @csrf
                                     </td>
                                     <td>{{ $config->urlroot }}</td>
                                     <td>{{ $config->cli_id }}</td>
-                                    <td>{{ $config->api_u }}</td>
-                                    <td>{{ $config->api_p }}</td>
-                                    <td>{{ $config->shop_test }}</td>
+                                    <td>{{ $config->cli_pass }}</td>
                                 </tr>
                                 @endforeach
                             </tbody>
