@@ -1,3 +1,10 @@
+<?php
+require_once("config/conexion.php");
+$sql = mysqli_query($con, "SELECT * FROM adminLTE.landings order by id desc limit 1;");
+$row = mysqli_fetch_assoc($sql);
+$url_landing = $row['url_landing'];
+$url_dashboard = $row['url_dashboard'];
+?>
 <!DOCTYPE html>
 <html lang="es">
 
@@ -61,8 +68,8 @@
                                 <div class="card">
                                     <div class="card-header">ACCESOS</div>
                                     <div class="card-body">
-                                        <a href="www.google.com.ar" type="button" class="btn btn-block bg-gradient-orange btn-lg" style="color: white;">INSTALADOR</a>
-                                        <a href="www.google.com.ar" type="button" class="btn btn-block bg-gradient-orange btn-lg" style="color: white;">DASHBOARD</a>
+                                        <a href=<?php echo $url_instalador; ?> type="button" class="btn btn-block bg-gradient-orange btn-lg" style="color: white;">INSTALADOR</a>
+                                        <a href=<?php echo $url_dashboard; ?> type="button" class="btn btn-block bg-gradient-orange btn-lg" style="color: white;">DASHBOARD</a>
 
                                     </div>
                                 </div>
