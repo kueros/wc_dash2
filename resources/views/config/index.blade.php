@@ -31,9 +31,10 @@ Configs
                                     <th></th>
                                     <th>Url Root</th>
                                     <th>Shopify Client Id</th>
-                                    <th>Api Iflow User</th>
+                                    <th>Shopify Client Secret</th>
+                                    <!--th>Api Iflow User</th>
                                     <th>Api Iflow Password</th>
-                                    <th>Shop Test</th>
+                                    <th>Shop Test</th-->
                                 </tr>
                             </thead>
                             <tbody>
@@ -46,9 +47,10 @@ Configs
                                     </td>
                                     <td>{{ $config->urlroot }}</td>
                                     <td>{{ $config->cli_id }}</td>
-                                    <td>{{ $config->api_u }}</td>
+                                    <td>{{ $config->cli_pass }}</td>
+                                    <!--td>{{ $config->api_u }}</td>
                                     <td>{{ $config->api_p }}</td>
-                                    <td>{{ $config->shop_test }}</td>
+                                    <td>{{ $config->shop_test }}</td-->
                                 </tr>
                                 @endforeach
                             </tbody>

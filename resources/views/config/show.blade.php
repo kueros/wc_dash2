@@ -61,17 +61,17 @@
                                     {{ $config->webhook_address_orders_cancelled }}
                                 </div>
                                 <div class="form-group mb-2 mb20">
-                                    <strong>Api Iflow User:</strong>
-                                    {{ $config->api_u }}
+                                    <strong>Shopify Client Secretr:</strong>
+                                    {{ $config->cli_pass }}
                                 </div>
-                                <div class="form-group mb-2 mb20">
+                                <!--div class="form-group mb-2 mb20">
                                     <strong>Api Iflow Password:</strong>
                                     {{ $config->api_p }}
                                 </div>
                                 <div class="form-group mb-2 mb20">
                                     <strong>Shop Test:</strong>
                                     {{ $config->shop_test }}
-                                </div>
+                                </div-->
 
                     </div>
                 </div>
