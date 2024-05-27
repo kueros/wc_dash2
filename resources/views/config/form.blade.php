@@ -52,11 +52,11 @@
             {!! $errors->first('webhook_address_orders_cancelled', '<div class="invalid-feedback" role="alert"><strong>:message</strong></div>') !!}
         </div>
         <div class="form-group mb-2 mb20">
-            <label for="api_u" class="form-label">{{ __('Api Iflow User') }}</label>
-            <input type="text" name="api_u" class="form-control @error('api_u') is-invalid @enderror" value="{{ old('api_u', $config?->api_u) }}" id="api_u" placeholder="Api U">
-            {!! $errors->first('api_u', '<div class="invalid-feedback" role="alert"><strong>:message</strong></div>') !!}
+            <label for="cli_pass" class="form-label">{{ __('Shopify Client Secret') }}</label>
+            <input type="text" name="cli_pass" class="form-control @error('cli_pass') is-invalid @enderror" value="{{ old('cli_pass', $config?->cli_pass) }}" id="cli_pass" placeholder="cli Pass">
+            {!! $errors->first('cli_pass', '<div class="invalid-feedback" role="alert"><strong>:message</strong></div>') !!}
         </div>
-        <div class="form-group mb-2 mb20">
+        <!--div class="form-group mb-2 mb20">
             <label for="api_p" class="form-label">{{ __('Api Iflow Password') }}</label>
             <input type="text" name="api_p" class="form-control @error('api_p') is-invalid @enderror" value="{{ old('api_p', $config?->api_p) }}" id="api_p" placeholder="Api P">
             {!! $errors->first('api_p', '<div class="invalid-feedback" role="alert"><strong>:message</strong></div>') !!}
@@ -65,7 +65,7 @@
             <label for="shop_test" class="form-label">{{ __('Shop Test') }}</label>
             <input type="text" name="shop_test" class="form-control @error('shop_test') is-invalid @enderror" value="{{ old('shop_test', $config?->shop_test) }}" id="shop_test" placeholder="Shop Test">
             {!! $errors->first('shop_test', '<div class="invalid-feedback" role="alert"><strong>:message</strong></div>') !!}
-        </div>
+        </div-->
 
     </div>
     <div class="col-md-12 mt20 mt-2">
