@@ -1,6 +1,6 @@
 <?php
 require_once("config/conexion.php");
-$sql = mysqli_query($con, "SELECT * FROM adminLTE.landings order by id desc limit 1;");
+$sql = mysqli_query($con, "SELECT * FROM iflow_dash.landings order by id desc limit 1;");
 $row = mysqli_fetch_assoc($sql);
 $url_instalador = $row['url_instalador'];
 $url_dashboard = $row['url_dashboard'];
