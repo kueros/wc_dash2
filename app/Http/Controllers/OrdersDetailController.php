@@ -66,7 +66,7 @@ class OrdersDetailController extends Controller
 			->where('iflow_order_data.order_id', $request)
 			->first();
 
-		$producto =
+            $producto =
 			IflowOrderData::select(
 				'iflow_order_data.order_id',
 				'order_prod.line_items_id',

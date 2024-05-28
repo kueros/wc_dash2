@@ -10,6 +10,7 @@
 {{-- Content body: main page content --}}
 
 @section('content_body')
+<?php #var_dump($data);die(); ?>
 <main class="main">
     <div class="container-fluid" id="app" :class="{'loading': loading}">
         <div class="modals">
