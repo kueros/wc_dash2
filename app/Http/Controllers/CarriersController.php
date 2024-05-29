@@ -8,7 +8,7 @@ use App\Http\Requests\Admin\Webhook\DestroyWebhook;
 use App\Http\Requests\Admin\Webhook\IndexWebhook;
 use App\Http\Requests\Admin\Webhook\StoreWebhook;
 use App\Http\Requests\Admin\Webhook\UpdateWebhook;
-use App\Models\Carrier;
+use App\Models\CarrierServices;
 use Brackets\AdminListing\Facades\AdminListing;
 use Exception;
 use Illuminate\Auth\Access\AuthorizationException;
@@ -31,19 +31,21 @@ class CarriersController extends Controller
      */
     public function index($request)
     {
-        $data = 
-        Carrier::select('carriers.id', 
-                        'carriers.carrierServiceId', 
-                        'carriers.shopId', 
-                        'carriers.callbackUrl', 
-                        'carriers.nombre',
-                        'carriers.tipo',
-                        'carriers.state',
-                        'stores.shop')
-                        ->join('stores', 'carriers.shopId', '=', 'stores.id')
-                        ->where('carriers.shopId', $request)
+        $data =
+            CarrierServices::select(
+                'carrier_services.id',
+                'carrier_services.carrierServiceId',
+                'carrier_services.shopId',
+                'carrier_services.callbackUrl',
+                'carrier_services.nombre',
+                'carrier_services.tipo',
+                'carrier_services.state',
+                'stores.shop'
+            )
+            ->join('stores', 'carrier_services.shopId', '=', 'stores.id')
+            ->where('carrier_services.shopId', $request)
             ->get();
-#dd($data);
+        #dd($data);
         return view('admin.carrier.index', ['data' => $data]);
     }
 
@@ -163,7 +165,7 @@ class CarriersController extends Controller
      * @throws Exception
      * @return Response|bool
      */
-    public function bulkDestroy(BulkDestroyWebhook $request) : Response
+    public function bulkDestroy(BulkDestroyWebhook $request): Response
     {
         DB::transaction(static function () use ($request) {
             collect($request->data['ids'])

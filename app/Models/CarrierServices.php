@@ -4,7 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Carrier extends Model
+class CarrierServices extends Model
 {
     protected $fillable = [
         'carrierServiceId',
