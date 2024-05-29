@@ -19,13 +19,7 @@
 </head>
 
 <body>
-	<div id="app" style="width:100%; height:100%;">
-
-	
-		<main class="py-4">
 			@yield('content')
-		</main>
-	</div>
 </body>
 
 </html>
