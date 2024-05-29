@@ -10,7 +10,6 @@
 {{-- Content body: main page content --}}
 
 @section('content_body')
-    <p>Welcome to this beautiful admin panel.</p>
         <main class="main">
             <div class="container-fluid" id="app" :class="{'loading': loading}">
                 <div class="modals">
