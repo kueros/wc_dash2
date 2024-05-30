@@ -17,61 +17,47 @@
                             <a class="btn btn-primary btn-sm" href="{{ route('configs.index') }}"> {{ __('Back') }}</a>
                         </div>
                     </div>
-
                     <div class="card-body bg-white">
-                        
-                                <div class="form-group mb-2 mb20">
-                                    <strong>Url Root:</strong>
-                                    {{ $config->urlroot }}
-                                </div>
-                                <div class="form-group mb-2 mb20">
-                                    <strong>Shopify Client Id:</strong>
-                                    {{ $config->cli_id }}
-                                </div>
-                                <div class="form-group mb-2 mb20">
-                                    <strong>Shopify Client Secret:</strong>
-                                    {{ $config->cli_pass }}
-                                </div>
-                                <div class="form-group mb-2 mb20">
-                                    <strong>Url de Redirección:</strong>
-                                    {{ $config->re_dir_url }}
-                                </div>
-                                <div class="form-group mb-2 mb20">
-                                    <strong>Fi Logs:</strong>
-                                    {{ $config->fi_logs }}
-                                </div>
-                                <div class="form-group mb-2 mb20">
-                                    <strong>Scope:</strong>
-                                    {{ $config->scope }}
-                                </div>
-                                <div class="form-group mb-2 mb20">
-                                    <strong>Callback Url Carrier:</strong>
-                                    {{ $config->callback_url_carrier }}
-                                </div>
-                                <div class="form-group mb-2 mb20">
-                                    <strong>Webhook Address Orders Create:</strong>
-                                    {{ $config->webhook_address_orders_create }}
-                                </div>
-                                <div class="form-group mb-2 mb20">
-                                    <strong>Webhook Address Orders Paid:</strong>
-                                    {{ $config->webhook_address_orders_paid }}
-                                </div>
-                                <div class="form-group mb-2 mb20">
-                                    <strong>Webhook Address Orders Cancelled:</strong>
-                                    {{ $config->webhook_address_orders_cancelled }}
-                                </div>
-                                <div class="form-group mb-2 mb20">
-                                    <strong>Shopify Client Secretr:</strong>
-                                    {{ $config->cli_pass }}
-                                </div>
-                                <!--div class="form-group mb-2 mb20">
-                                    <strong>Api Iflow Password:</strong>
-                                    {{ $config->api_p }}
-                                </div>
-                                <div class="form-group mb-2 mb20">
-                                    <strong>Shop Test:</strong>
-                                    {{ $config->shop_test }}
-                                </div-->
+                        <div class="form-group mb-2 mb20">
+                            <strong>Url Root:</strong>
+                            {{ $config->urlroot }}
+                        </div>
+                        <div class="form-group mb-2 mb20">
+                            <strong>Shopify Client Id:</strong>
+                            {{ $config->cli_id }}
+                        </div>
+                        <div class="form-group mb-2 mb20">
+                            <strong>Shopify Client Secret:</strong>
+                            {{ $config->cli_pass }}
+                        </div>
+                        <div class="form-group mb-2 mb20">
+                            <strong>Url de Redirección:</strong>
+                            {{ $config->re_dir_url }}
+                        </div>
+                        <div class="form-group mb-2 mb20">
+                            <strong>Fi Logs:</strong>
+                            {{ $config->fi_logs }}
+                        </div>
+                        <div class="form-group mb-2 mb20">
+                            <strong>Scope:</strong>
+                            {{ $config->scope }}
+                        </div>
+                        <div class="form-group mb-2 mb20">
+                            <strong>Callback Url Carrier:</strong>
+                            {{ $config->callback_url_carrier }}
+                        </div>
+                        <div class="form-group mb-2 mb20">
+                            <strong>Webhook Address Orders Create:</strong>
+                            {{ $config->webhook_address_orders_create }}
+                        </div>
+                        <div class="form-group mb-2 mb20">
+                            <strong>Webhook Address Orders Paid:</strong>
+                            {{ $config->webhook_address_orders_paid }}
+                        </div>
+                        <div class="form-group mb-2 mb20">
+                            <strong>Webhook Address Orders Cancelled:</strong>
+                            {{ $config->webhook_address_orders_cancelled }}
+                        </div>
 
                     </div>
                 </div>

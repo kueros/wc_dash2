@@ -57,13 +57,7 @@
                             <label for="estado" class="col-md-4 col-form-label text-md-end">{{ __('Estado') }}</label>
 
                             <div class="col-md-6">
-                                <input id="estado" type="estado" class="form-control @error('estado') is-invalid @enderror" name="estado" value="{{ old('estado') }}" required autocomplete="estado">
-
-                                @error('estado')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
+                                <input id="estado" type="estado" class="form-control" name="estado" value="Activo" readonly="readonly">
                             </div>
                         </div>
 

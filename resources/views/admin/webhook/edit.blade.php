@@ -1,12 +1,8 @@
 @extends('brackets/admin-ui::admin.layout.default')
-
 @section('title', trans('admin.webhook.actions.edit', ['name' => $webhook->id]))
-
 @section('body')
-
     <div class="container-xl">
         <div class="card">
-
             <webhook-form
                 :action="'{{ $webhook->resource_url }}'"
                 :data="{{ $webhook->toJson() }}"
@@ -14,12 +10,9 @@
                 inline-template>
             
                 <form class="form-horizontal form-edit" method="post" @submit.prevent="onSubmit" :action="action" novalidate>
-
-asdfasfasdf
                     <div class="card-header">
                         <i class="fa fa-pencil"></i> {{ trans('admin.webhook.actions.edit', ['name' => $webhook->id]) }}
                     </div>
-
                     <div class="card-body">
                         @include('admin.webhook.components.form-elements')
                     </div>
@@ -33,11 +26,8 @@ asdfasfasdf
                     </div>
                     
                 </form>
-
         </webhook-form>
-
         </div>
     
 </div>
-
 @endsection

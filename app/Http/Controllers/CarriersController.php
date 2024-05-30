@@ -31,17 +31,19 @@ class CarriersController extends Controller
      */
     public function index($request)
     {
-        $data = 
-        CarrierServices::select('carrier_services.id', 
-                        'carrier_services.carrierServiceId', 
-                        'carrier_services.shopId', 
-                        'carrier_services.callbackUrl', 
-                        'carrier_services.nombre',
-                        'carrier_services.tipo',
-                        'carrier_services.state',
-                        'stores.shop')
-                        ->join('stores', 'carrier_services.shopId', '=', 'stores.id')
-                        ->where('carrier_services.shopId', $request)
+        $data =
+            CarrierServices::select(
+                'carrier_services.id',
+                'carrier_services.carrierServiceId',
+                'carrier_services.shopId',
+                'carrier_services.callbackUrl',
+                'carrier_services.nombre',
+                'carrier_services.tipo',
+                'carrier_services.state',
+                'stores.shop'
+            )
+            ->join('stores', 'carrier_services.shopId', '=', 'stores.id')
+            ->where('carrier_services.shopId', $request)
             ->get();
         #dd($data);
         return view('admin.carrier.index', ['data' => $data]);
@@ -163,7 +165,7 @@ class CarriersController extends Controller
      * @throws Exception
      * @return Response|bool
      */
-    public function bulkDestroy(BulkDestroyWebhook $request) : Response
+    public function bulkDestroy(BulkDestroyWebhook $request): Response
     {
         DB::transaction(static function () use ($request) {
             collect($request->data['ids'])
