@@ -1,10 +1,42 @@
-@extends('layouts.app')
+@extends('layouts.app2')
 
 @section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
+<style>
+    .left-half {
+        background-color: black;
+        height: 100vh;
+        /* Asegura que ocupa toda la altura de la pantalla */
+        display: flex;
+        align-items: center;
+        /* Centra verticalmente */
+        justify-content: center;
+        /* Centra horizontalmente */
+    }
+
+    .right-half {
+        background-color: white;
+        height: 100vh;
+        /* Asegura que ocupa toda la altura de la pantalla */
+        display: flex;
+        align-items: center;
+        /* Centra verticalmente */
+        justify-content: center;
+        /* Centra horizontalmente */
+    }
+
+    .left-half img {
+        max-width: 100%;
+        /* Ajusta el tamaño de la imagen */
+        height: auto;
+    }
+</style>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-6 left-half">
+            <img src="vendor/adminlte/dist/img/iflowEcommerceLogo.png" alt="Logo">
+        </div>
+        <div class="col-md-6 right-half">
+            <div class="card" style="width:90%;">
                 <div class="card-header">{{ __('Register') }}</div>
 
                 <div class="card-body">
@@ -18,9 +50,9 @@
                                 <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
 
                                 @error('name')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
                                 @enderror
                             </div>
                         </div>
@@ -32,9 +64,9 @@
                                 <input id="apellido" type="text" class="form-control @error('apellido') is-invalid @enderror" name="apellido" value="{{ old('apellido') }}" required autocomplete="apellido" autofocus>
 
                                 @error('apellido')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
                                 @enderror
                             </div>
                         </div>
@@ -46,9 +78,9 @@
                                 <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">
 
                                 @error('email')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
                                 @enderror
                             </div>
                         </div>
@@ -68,9 +100,9 @@
                                 <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
 
                                 @error('password')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
                                 @enderror
                             </div>
                         </div>
