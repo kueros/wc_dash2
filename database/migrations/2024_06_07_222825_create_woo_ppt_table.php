@@ -11,12 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('landings', function (Blueprint $table) {
-            $table->id();
-            $table->string('url_dashboard');
-            $table->string('url_instalador');
-            $table->timestamps();
-        });
+		Schema::create('woo_ppt', function (Blueprint $table) {
+			$table->integer('woo_id_ppt')->primary();
+			$table->string('store', 60);
+			$table->string('country', 40);
+			$table->string('cod_state', 4);
+			$table->string('state', 40);
+		});
     }
 
     /**
@@ -24,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('landings');
+        Schema::dropIfExists('woo_ppt');
     }
 };
