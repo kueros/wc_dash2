@@ -8,7 +8,8 @@ use App\Http\Requests\Admin\Store\DestroyStore;
 use App\Http\Requests\Admin\Store\IndexStore;
 use App\Http\Requests\Admin\Store\StoreStore;
 use App\Http\Requests\Admin\Store\UpdateStore;
-use App\Models\IflowOrderData;
+use App\Models\WooOrder;
+use App\Models\WooOrderData;
 use Brackets\AdminListing\Facades\AdminListing;
 use Exception;
 use Illuminate\Auth\Access\AuthorizationException;
@@ -34,51 +35,51 @@ class OrdersDetailController extends Controller
 	{
 
 		$data =
-			IflowOrderData::select(
-				'iflow_order_data.id',
-				'iflow_order_data.order_id',
-                'iflow_order_data.cli_id',
-                'iflow_order_data.tracking_id',
-				'iflow_order_data.shipment_id',
-				'iflow_order_data.print_url',
-				'iflow_order_data.code',
+			WooOrder::select(
+				'woo_orders.id',
+				'woo_orders.order_id',
+                'woo_orders.cli_id',
+                'woo_orders.tracking_id',
+				'woo_orders.shipment_id',
+				'woo_orders.print_url',
+				'woo_orders.code',
 				'order_in.order_nro',
 				'order_in.store',
 				'order_in.index_id',
 				'order_in.app_id',
 				'order_in.financial_status',
 				'order_in.fecha_creacion',
-				'order_data.first_name',
-				'order_data.address1',
-				'order_data.address2',
-				'order_data.phone',
-				'order_data.city',
-				'order_data.zip',
-				'order_data.province',
-				'order_data.country',
-				'order_data.last_name',
-				'order_data.name',
-				'order_data.province_code',
-				'order_data.note'
+				'woo_order_data.first_name',
+				'woo_order_data.address1',
+				'woo_order_data.address2',
+				'woo_order_data.phone',
+				'woo_order_data.city',
+				'woo_order_data.zip',
+				'woo_order_data.province',
+				'woo_order_data.country',
+				'woo_order_data.last_name',
+				'woo_order_data.name',
+				'woo_order_data.province_code',
+				'woo_order_data.note'
 			)
-			->leftJoin('order_in', 'iflow_order_data.order_id', '=', 'order_in.order_id')
-			->leftJoin('order_data', 'iflow_order_data.order_id', '=', 'order_data.order_id')
-			->where('iflow_order_data.order_id', $request)
+			->leftJoin('order_in', 'woo_orders.order_id', '=', 'order_in.order_id')
+			->leftJoin('woo_order_data', 'woo_orders.order_id', '=', 'woo_order_data.order_id')
+			->where('woo_orders.order_id', $request)
 			->first();
 
             $producto =
-			IflowOrderData::select(
-				'iflow_order_data.order_id',
-				'order_prod.line_items_id',
-				'order_prod.line_items_quantity',
-                'order_prod.line_items_price',
-                'order_prod.line_items_sku',
-				'order_prod.depth',
-				'order_prod.height',
-                'order_prod.width'
+			WooOrder::select(
+				'woo_orders.order_id',
+				'woo_order_product.line_items_id',
+				'woo_order_product.line_items_quantity',
+                'woo_order_product.line_items_price',
+                'woo_order_product.line_items_sku',
+				'woo_order_product.depth',
+				'woo_order_product.height',
+                'woo_order_product.width'
 			)
-			->leftJoin('order_prod', 'iflow_order_data.order_id', '=', 'order_prod.order_id')
-			->where('iflow_order_data.order_id', $request)
+			->leftJoin('woo_order_product', 'woo_orders.order_id', '=', 'woo_order_product.order_id')
+			->where('woo_orders.order_id', $request)
 			->get();
 
 

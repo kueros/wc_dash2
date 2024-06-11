@@ -38,8 +38,8 @@ class WebhooksController extends Controller
                         'webhooks.url', 
                         'webhooks.tipo', 
                         'webhooks.state',
-                        'stores.shop')
-                        ->join('stores', 'webhooks.shopId', '=', 'stores.id')
+                        'woo_tiendas.shop')
+                        ->join('woo_tiendas', 'webhooks.shopId', '=', 'woo_tiendas.id')
                         ->where('webhooks.shopId', $request)
             ->get();
 #dd($data[0]->id);

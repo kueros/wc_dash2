@@ -11,19 +11,24 @@ return new class extends Migration
      */
     public function up(): void
     {
-		Schema::create('woo_order', function (Blueprint $table) {
-			$table->integer('woo_id')->unique('woo_id');
-			$table->string('ord_id', 25);
-			$table->string('id_tienda', 50)->nullable();
-			$table->dateTime('date_created');
+		#Equivalente a (sf_dash) iflow_order_data
+		Schema::create('woo_orders', function (Blueprint $table) {
+			$table->id();
+			$table->string('cli_id')->nullable();
+			$table->string('order_id', 25);
+			$table->string('shopId');
 			$table->string('order_key', 40);
 			$table->string('customer', 125);
-			$table->string('track_id', 40)->nullable();
+			$table->string('tracking_id', 50);
+			$table->string('shipment_id', 50);
+			$table->string('print_url', 200);
+			$table->string('code', 4);
 			$table->string('resp_milo', 500)->nullable();
-			$table->timestamp('date_update')->nullable()->useCurrentOnUpdate();
 			$table->string('active', 2)->nullable();
+			$table->timestamps();
         });
     }
+
 
     /**
      * Reverse the migrations.

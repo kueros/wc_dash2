@@ -11,11 +11,14 @@ return new class extends Migration
      */
     public function up(): void
     {
-		Schema::create('woo_logs', function (Blueprint $table) {
-			$table->integer('id')->primary();
-			$table->char('woo_order_id', 40)->nullable();
-			$table->char('woo_shop_id', 40)->nullable();
-			$table->longText('woo_data_log');
+        Schema::create('carrier_services', function (Blueprint $table) {
+			$table->id();
+			$table->string('carrierServiceId');
+			$table->string('shopId');
+			$table->string('callbackUrl');
+			$table->string('nombre');
+			$table->string('tipo')->nullable();
+			$table->string('state')->default('activo');
 			$table->timestamps();
         });
     }
@@ -25,6 +28,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('woo_logs');
+        Schema::dropIfExists('carrier_services');
     }
 };

@@ -11,19 +11,22 @@ return new class extends Migration
      */
     public function up(): void
     {
+		#Equivalente a (sf_dash) order_prod
 		Schema::create('woo_order_product', function (Blueprint $table) {
-			$table->integer('woo_id_prod')->primary();
-			$table->string('ord_id', 25)->nullable();
-			$table->string('items_id', 25)->nullable();
-			$table->string('items_sku', 60);
+			$table->integer('id')->primary();
+			$table->string('order_id', 25)->nullable();
+			$table->string('line_items_id', 25)->nullable();
+			$table->string('line_items_quantity', 10)->nullable();
+			$table->string('line_items_price', 50)->nullable();
+			$table->string('line_items_sku', 60);
+			$table->string('items_grams', 10)->nullable();
 			$table->string('items_title', 40)->nullable();
-			$table->string('items_quantity', 8)->nullable();
-			$table->string('items_grams', 4)->nullable();
-			$table->string('items_price', 8)->nullable();
-			$table->string('depth', 4)->nullable();
-			$table->string('height', 4)->nullable();
-			$table->string('width', 4);
-		});    }
+			$table->string('depth', 10)->nullable();
+			$table->string('height', 10)->nullable();
+			$table->string('width', 10);
+		});    
+	}
+
 
     /**
      * Reverse the migrations.

@@ -43,8 +43,8 @@ Route::resource('configs', ConfigController::class);
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-Route::prefix('stores')->namespace('App\Http\Controllers')->name('stores/')->middleware('auth')->group(function() {
-    Route::get('/', 'StoresController@index')->name('index');
+Route::prefix('woo_tiendas')->namespace('App\Http\Controllers')->name('woo_tiendas/')->middleware('auth')->group(function() {
+    Route::get('/', 'WooTiendaController@index')->name('index');
 });
 
 
@@ -56,8 +56,8 @@ Route::prefix('carriers')->namespace('App\Http\Controllers')->name('carriers/')-
 	Route::get('/{id}', 'CarriersController@index')->name('index');
 });
 
-Route::prefix('iflow_orders_data')->namespace('App\Http\Controllers')->name('iflow_orders_data/')->middleware('auth')->group(static function() {
-	Route::get('/', 'IflowOrdersDataController@index')->name('index');
+Route::prefix('woo_order')->namespace('App\Http\Controllers')->name('woo_order/')->middleware('auth')->group(static function() {
+	Route::get('/', 'WooOrderController@index')->name('index');
 });
 
 Route::prefix('orders_detail')->namespace('App\Http\Controllers')->name('orders_detail/')->middleware('auth')->group(static function() {

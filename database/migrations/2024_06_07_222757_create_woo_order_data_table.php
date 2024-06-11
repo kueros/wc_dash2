@@ -11,19 +11,23 @@ return new class extends Migration
      */
     public function up(): void
     {
+		#Equivalente a (sf_dash) order_data
 		Schema::create('woo_order_data', function (Blueprint $table) {
-			$table->integer('woo_id_data')->primary();
-			$table->string('ord_id', 25)->nullable();
-			$table->string('first_name', 30)->nullable();
-			$table->string('last_name', 30)->nullable();
-			$table->string('address_1', 40)->nullable();
-			$table->string('address_2', 40)->nullable();
-			$table->string('city', 30)->nullable();
-			$table->string('state', 30)->nullable();
-			$table->string('postcode', 10)->nullable();
-			$table->string('email', 60)->nullable();
-			$table->string('phone', 25)->nullable();
-			$table->string('notas', 200)->nullable();
+			$table->id();
+			$table->string('order_id', 50);
+			$table->string('first_name', 100);
+			$table->string('last_name', 100);
+			$table->string('address1', 50);
+			$table->string('address2', 8)->nullable();
+			$table->string('phone', 50);
+			$table->string('city', 25);
+			$table->string('zip', 25);
+			$table->string('province', 25);
+			$table->string('country', 10);
+			$table->string('name', 50);
+			$table->string('province_code', 125);
+			$table->string('note', 200);
+			$table->timestamps();
 		});
     }
 

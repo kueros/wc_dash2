@@ -5,14 +5,15 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class WooOrder extends Model
+class Webhook extends Model
 {
 	protected $fillable = [
-		'order_id',
-		'tracking_id',
-		'shipment_id',
-		'print_url',
-		'code',
+		'webhookId',
+		'shopId',
+		'url',
+		'tipo',
+		'state',
+
 	];
 
 
@@ -28,6 +29,6 @@ class WooOrder extends Model
 
 	public function getResourceUrlAttribute()
 	{
-		return url('/admin/stores/' . $this->getKey());
+		return url('/admin/webhooks/' . $this->getKey());
 	}
 }

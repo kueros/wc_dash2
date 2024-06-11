@@ -40,9 +40,9 @@ class CarriersController extends Controller
                 'carrier_services.nombre',
                 'carrier_services.tipo',
                 'carrier_services.state',
-                'stores.shop'
+                'woo_tiendas.shop'
             )
-            ->join('stores', 'carrier_services.shopId', '=', 'stores.id')
+            ->join('woo_tiendas', 'carrier_services.shopId', '=', 'woo_tiendas.id')
             ->where('carrier_services.shopId', $request)
             ->get();
         #dd($data);

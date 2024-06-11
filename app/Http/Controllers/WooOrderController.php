@@ -8,7 +8,7 @@ use App\Http\Requests\Admin\Store\DestroyStore;
 use App\Http\Requests\Admin\Store\IndexStore;
 use App\Http\Requests\Admin\Store\StoreStore;
 use App\Http\Requests\Admin\Store\UpdateStore;
-use App\Models\IflowOrderData;
+use App\Models\WooOrder;
 use Brackets\AdminListing\Facades\AdminListing;
 use Exception;
 use Illuminate\Auth\Access\AuthorizationException;
@@ -23,7 +23,7 @@ use Illuminate\Support\Facades\Auth;
 use App\Models\User;
 
 
-class IflowOrdersDataController extends Controller
+class WooOrderController extends Controller
 {
 
 	/**
@@ -42,15 +42,15 @@ class IflowOrdersDataController extends Controller
 		$cli_id = $user_cli_id->cli_id;
 
 		$data =
-			IflowOrderData::where('cli_id', $cli_id)
+			WooOrder::where('cli_id', $cli_id)
 				->select(
-				'iflow_order_data.id',
-				'iflow_order_data.cli_id',
-				'iflow_order_data.order_id',
-				'iflow_order_data.tracking_id',
-				'iflow_order_data.shipment_id',
-				'iflow_order_data.print_url',
-				'iflow_order_data.code',
+				'woo_orders.id',
+				'woo_orders.cli_id',
+				'woo_orders.order_id',
+				'woo_orders.tracking_id',
+				'woo_orders.shipment_id',
+				'woo_orders.print_url',
+				'woo_orders.code',
 				'order_in.order_nro',
 				'order_in.store',
 				'order_in.index_id',
@@ -58,40 +58,15 @@ class IflowOrdersDataController extends Controller
 				'order_in.financial_status',
 				'order_in.fecha_creacion',
 			)
-			->leftJoin('order_in', 'iflow_order_data.order_id', '=', 'order_in.order_id')
+			->leftJoin('order_in', 'woo_orders.order_id', '=', 'order_in.order_id')
 			->get();
 
 
 		#dd($data);
-		return view('admin.iflow_order_data.index', ['data' => $data]);
+		return view('admin.woo_orders.index', ['data' => $data]);
 	}
 
 
-	public function index2(IndexStore $request)
-	{
-		// create and AdminListing instance for a specific model and
-		$data = AdminListing::create(Store::class)->processRequestAndGet(
-			// pass the request with params
-			$request,
-
-			// set columns to query
-			['id', 'token', 'code', 'cuit', 'shop', 'fapiusr', 'fapiclave', 'hmac', 'host', 'state'],
-
-			// set columns to searchIn
-			['id', 'token', 'code', 'cuit', 'shop', 'fapiusr', 'fapiclave', 'hmac', 'host', 'state']
-		);
-
-		if ($request->ajax()) {
-			if ($request->has('bulk')) {
-				return [
-					'bulkItems' => $data->pluck('id')
-				];
-			}
-			return ['data' => $data];
-		}
-
-		return view('admin.store.index', ['data' => $data]);
-	}
 
 	/**
 	 * Show the form for creating a new resource.

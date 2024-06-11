@@ -327,12 +327,12 @@ return [
 		],
 		[
 			'text' => 'orders',
-			'url' => 'iflow_orders_data',
+			'url' => 'woo_order',
 			'icon' => 'fas fa-edit',
 		],
 		[
 			'text' => 'stores',
-			'url' => 'stores',
+			'url' => 'woo_tiendas',
 			'icon' => 'fas fa-store',
 		],
 		[

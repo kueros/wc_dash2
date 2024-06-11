@@ -8,7 +8,7 @@ use App\Http\Requests\Admin\Store\DestroyStore;
 use App\Http\Requests\Admin\Store\IndexStore;
 use App\Http\Requests\Admin\Store\StoreStore;
 use App\Http\Requests\Admin\Store\UpdateStore;
-use App\Models\Store;
+use App\Models\WooTienda;
 use Brackets\AdminListing\Facades\AdminListing;
 use Exception;
 use Illuminate\Auth\Access\AuthorizationException;
@@ -22,13 +22,13 @@ use Illuminate\View\View;
 use Illuminate\Support\Facades\Auth;
 use App\Models\User;
 
-class StoresController extends Controller
+class WooTiendaController extends Controller
 {
 
     /**
      * Display a listing of the resource.
      *
-     * @param IndexStore $request
+     * @param IndexWooTienda $request
      * @return array|Factory|View
      */
 
@@ -41,17 +41,17 @@ class StoresController extends Controller
         $cli_id = $user_cli_id->cli_id;
 
         $data = 
-                Store::where('cli_id', $cli_id)
-                    ->select(  'stores.id', 
-                                'stores.token', 
-                                'stores.code', 
-                                'stores.cuit', 
-                                'stores.shop', 
-                                'stores.fapiusr', 
-                                'stores.fapiclave', 
-                                'stores.hmac', 
-                                'stores.host', 
-                                'stores.state')
+                WooTienda::where('cli_id', $cli_id)
+                    ->select(  'woo_tiendas.id', 
+                                'woo_tiendas.token', 
+                                'woo_tiendas.code', 
+                                'woo_tiendas.cuit', 
+                                'woo_tiendas.shop', 
+                                'woo_tiendas.fapiusr', 
+                                'woo_tiendas.fapiclave', 
+                                'woo_tiendas.hmac', 
+                                'woo_tiendas.host', 
+                                'woo_tiendas.state')
                     ->leftJoin( DB::raw(
                                 '(SELECT shopId, 
                                 MAX(webhookId) AS webhookId, 
@@ -62,9 +62,9 @@ class StoresController extends Controller
                                 GROUP BY shopId) AS grouped_webhooks'), 
                     function($join) {
                                 $join->on(
-                                    'stores.id', '=', 'grouped_webhooks.shopId');
+                                    'woo_tiendas.id', '=', 'grouped_webhooks.shopId');
                     })
-                    ->groupBy('stores.id') // Agrupa por el campo stores.id
+                    ->groupBy('woo_tiendas.id') // Agrupa por el campo woo_tiendas.id
                     ->get();
 
 #dd($data);

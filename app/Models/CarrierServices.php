@@ -5,16 +5,16 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class WooOrder extends Model
+class CarrierServices extends Model
 {
 	protected $fillable = [
-		'order_id',
-		'tracking_id',
-		'shipment_id',
-		'print_url',
-		'code',
-	];
+		'carrierServiceId',
+		'shopId',
+		'callbackUrl',
+		'nombre',
+		'state',
 
+	];
 
 	protected $dates = [
 		'created_at',
@@ -28,6 +28,6 @@ class WooOrder extends Model
 
 	public function getResourceUrlAttribute()
 	{
-		return url('/admin/stores/' . $this->getKey());
+		return url('/admin/carriers/' . $this->getKey());
 	}
 }

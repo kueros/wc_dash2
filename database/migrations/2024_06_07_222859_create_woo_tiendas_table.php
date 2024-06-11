@@ -12,19 +12,18 @@ return new class extends Migration
     public function up(): void
     {
 		Schema::create('woo_tiendas', function (Blueprint $table) {
-			$table->integer('woo_id_tienda')->primary();
-			$table->string('razon_social', 30);
-			$table->string('cuit', 13);
-			$table->string('usr_api', 60);
-			$table->string('psw_api', 60);
-			$table->timestamp('f_alta')->useCurrent();
-			$table->timestamp('f_update')->useCurrent()->useCurrentOnUpdate();
-			$table->string('id_tienda', 30);
-			$table->string('prefijo', 6)->nullable();
-			$table->string('ck_tienda', 100);
-			$table->string('cs_tienda', 100);
-			$table->string('url_tienda', 100);
-			$table->string('activo', 2)->nullable();
+			$table->id();
+			$table->string('cli_id')->nullable();
+			$table->string('token')->nullable();
+			$table->string('code')->nullable();;
+			$table->string('cuit')->nullable();
+			$table->string('shop')->nullable();
+			$table->string('fapiusr');
+			$table->string('fapiclave');
+			$table->string('hmac')->nullable();
+			$table->string('host')->nullable();
+			$table->string('state')->default('activo');
+			$table->timestamps();
 		});
     }
 
