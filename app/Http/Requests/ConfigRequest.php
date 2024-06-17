@@ -32,9 +32,6 @@ class ConfigRequest extends FormRequest
 			'webhook_address_orders_create' => 'required|string',
 			'webhook_address_orders_paid' => 'required|string',
 			'webhook_address_orders_cancelled' => 'required|string',
-			'api_u' => 'required|string',
-			'api_p' => 'required|string',
-			'shop_test' => 'required|string',
         ];
     }
 }

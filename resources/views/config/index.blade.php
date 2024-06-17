@@ -38,8 +38,8 @@ Configs
                                 @foreach ($configs as $config)
                                 <tr>
                                     <td>
-                                        <a class="btn btn-sm btn-primary " href="{{ route('configs.show', $config->id) }}"><i class="fa fa-fw fa-eye"></i></a>
-                                        <a class="btn btn-sm btn-success" href="{{ route('configs.edit', $config->id) }}"><i class="fa fa-fw fa-edit"></i></a>
+                                        <a class="btn btn-sm btn-warning " href="{{ route('configs.show', $config->id) }}"><i class="fa fa-fw fa-eye"></i></a>
+                                        <a class="btn btn-sm btn-warning" href="{{ route('configs.edit', $config->id) }}"><i class="fa fa-fw fa-edit"></i></a>
                                         @csrf
                                     </td>
                                     <td>{{ $config->urlroot }}</td>

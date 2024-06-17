@@ -8,8 +8,7 @@ use App\Http\Requests\Admin\Store\DestroyStore;
 use App\Http\Requests\Admin\Store\IndexStore;
 use App\Http\Requests\Admin\Store\StoreStore;
 use App\Http\Requests\Admin\Store\UpdateStore;
-use App\Models\WooOrder;
-use App\Models\WooOrderData;
+use App\Models\IflowOrderData;
 use Brackets\AdminListing\Facades\AdminListing;
 use Exception;
 use Illuminate\Auth\Access\AuthorizationException;
@@ -33,58 +32,19 @@ class OrdersDetailController extends Controller
 
 	public function index($request)
 	{
-
+		#dd($request);
 		$data =
-			WooOrder::select(
-				'woo_orders.id',
-				'woo_orders.order_id',
-                'woo_orders.cli_id',
-                'woo_orders.tracking_id',
-				'woo_orders.shipment_id',
-				'woo_orders.print_url',
-				'woo_orders.code',
-				'order_in.order_nro',
-				'order_in.store',
-				'order_in.index_id',
-				'order_in.app_id',
-				'order_in.financial_status',
-				'order_in.fecha_creacion',
-				'woo_order_data.first_name',
-				'woo_order_data.address1',
-				'woo_order_data.address2',
-				'woo_order_data.phone',
-				'woo_order_data.city',
-				'woo_order_data.zip',
-				'woo_order_data.province',
-				'woo_order_data.country',
-				'woo_order_data.last_name',
-				'woo_order_data.name',
-				'woo_order_data.province_code',
-				'woo_order_data.note'
-			)
-			->leftJoin('order_in', 'woo_orders.order_id', '=', 'order_in.order_id')
-			->leftJoin('woo_order_data', 'woo_orders.order_id', '=', 'woo_order_data.order_id')
-			->where('woo_orders.order_id', $request)
+			DB::table('woo_order')
+			->leftJoin('woo_order_data', 'woo_order.order_id', '=', 'woo_order_data.order_id')
+			->where('woo_order.order_id', '=', $request)
 			->first();
-
-            $producto =
-			WooOrder::select(
-				'woo_orders.order_id',
-				'woo_order_product.line_items_id',
-				'woo_order_product.line_items_quantity',
-                'woo_order_product.line_items_price',
-                'woo_order_product.line_items_sku',
-				'woo_order_product.depth',
-				'woo_order_product.height',
-                'woo_order_product.width'
-			)
-			->leftJoin('woo_order_product', 'woo_orders.order_id', '=', 'woo_order_product.order_id')
-			->where('woo_orders.order_id', $request)
-			->get();
-
-
-
-			#dd($data);
+					#dd($producto);
+		$producto = 
+				DB::table('woo_order')
+				->leftJoin('woo_order_product', 'woo_order.order_id', '=', 'woo_order_product.order_id')
+				->where('woo_order.order_id', '=', $request)
+				->get();
+				#dd($data);
 		return view('admin.order_detail.index', ['data' => $data], ['producto' => $producto]);
 	}
 

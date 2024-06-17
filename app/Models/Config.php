@@ -29,13 +29,15 @@ use Illuminate\Database\Eloquent\Model;
  */
 class Config extends Model
 {
+    
+    protected $perPage = 20;
 
-	protected $perPage = 20;
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var array<int, string>
+     */
+    protected $fillable = ['urlroot', 'cli_id', 'cli_pass', 're_dir_url', 'fi_logs', 'scope', 'callback_url_carrier', 'webhook_address_orders_create', 'webhook_address_orders_paid', 'webhook_address_orders_cancelled', 'api_u', 'api_p', 'shop_test'];
 
-	/**
-	 * The attributes that are mass assignable.
-	 *
-	 * @var array<int, string>
-	 */
-	protected $fillable = ['urlroot', 'cli_id', 'cli_pass', 're_dir_url', 'fi_logs', 'scope', 'callback_url_carrier', 'webhook_address_orders_create', 'webhook_address_orders_paid', 'webhook_address_orders_cancelled'];
+
 }

@@ -11,8 +11,8 @@ return new class extends Migration
      */
     public function up(): void
     {
-		#Equivalente a (sf_dash) order_data
-		Schema::create('woo_order_data', function (Blueprint $table) {
+		#Equivalente a (sf_dash) woo_order_data
+		Schema::create('woo_woo_order_data', function (Blueprint $table) {
 			$table->id();
 			$table->string('order_id', 50);
 			$table->string('first_name', 100);
@@ -36,6 +36,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('woo_order_data');
+        Schema::dropIfExists('woo_woo_order_data');
     }
 };
