@@ -26,12 +26,6 @@ Route::get('/', function () {
 	return view('auth.login');
 });
 
-Auth::routes();
-/*
-Route::get('/home', function() {
-    return view('home');
-})->name('home')->middleware('auth');
-*/
 
 Auth::routes();
 
@@ -41,24 +35,15 @@ Route::resource('users', UserController::class);
 
 Route::resource('configs', ConfigController::class);
 
-#Route::resource('stores', App\Http\Controllers\StoresController::class);
-
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-
-/*Route::prefix('stores')->namespace('App\Http\Controllers')->name('stores/')->middleware('auth')->group(function() {
-	Route::get('/', 'StoresController@index')->name('index');
-	Route::get('/show/{id}', 'StoresController@show')->name('store.show');
-	Route::get('/edit/{id}', 'StoresController@edit')->name('store.show');
-});
-*/
 
 Route::prefix('webhooks')->namespace('App\Http\Controllers')->name('webhooks/')->middleware('auth')->group(static function() {
 	Route::get('/{id}', 'WebhooksController@index')->name('index');
 });
 
 Route::prefix('stores')->namespace('App\Http\Controllers')->name('stores/')->middleware('auth')->group(static function () {
-	Route::get('/', 'StoresController@index')->name('index');
-	Route::get('/show/{id}', 'StoresController@show')->name('show');
+	Route::get('/', 'WooTiendaController@index')->name('index');
+	Route::get('/show/{id}', 'WooTiendaController@show')->name('show');
 });
 
 Route::prefix('carriers')->namespace('App\Http\Controllers')->name('carriers/')->middleware('auth')->group(static function() {
@@ -67,10 +52,6 @@ Route::prefix('carriers')->namespace('App\Http\Controllers')->name('carriers/')-
 
 Route::prefix('woo_order')->namespace('App\Http\Controllers')->name('woo_order/')->middleware('auth')->group(static function () {
 	Route::get('/', 'WooOrderController@index')->name('index');
-});
-
-Route::prefix('iflow_orders_data')->namespace('App\Http\Controllers')->name('iflow_orders_data/')->middleware('auth')->group(static function () {
-	Route::get('/', 'IflowOrdersDataController@index')->name('index');
 });
 
 Route::prefix('orders_detail')->namespace('App\Http\Controllers')->name('orders_detail/')->middleware('auth')->group(static function() {

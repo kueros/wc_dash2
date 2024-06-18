@@ -18,13 +18,14 @@
 		<div>
 			<notifications position="bottom right" :duration="2000" />
 		</div>
-		<?php #dd($data); 
-		?>
 		<div class="row">
 			<div class="col-sm-6">
 				<div class="card">
-					<div class="card-header">
-						Orden Nro: {{ $data->order_key }}
+					<div class="card-header" style="display: flex; justify-content: space-between; align-items: center;">
+						<div class="float-left">
+							<p class="float-left"><strong>ORDEN NRO: {{ $data->order_key }}</strong></p><br />
+							<a class="btn btn-warning btn-sm card-title" href="{{ route('stores/index') }}"> {{ __('Volver') }}</a>
+						</div>
 					</div>
 					<div class="card-body">
 						<h5 class="card-title">Datos Generales</h5>

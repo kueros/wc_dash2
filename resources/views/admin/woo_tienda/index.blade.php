@@ -48,7 +48,7 @@
 													</a>
 												</div>
 												<div class="col-auto">
-													<a class="btn btn-sm btn-spinner btn-warning" href="{{ url('woo_tiendas/show/'.$datos->id) }}" title="Webhooks" role="button" style="margin-right: 5px;">
+													<a class="btn btn-sm btn-spinner btn-warning" href="{{ url('stores/show/'.$datos->id) }}" title="Webhooks" role="button" style="margin-right: 5px;">
 														<i class="fa fa-eye" aria-hidden="true"></i>
 													</a>
 												</div>

@@ -20,6 +20,8 @@ use Illuminate\Routing\Redirector;
 use Illuminate\Support\Facades\DB;
 use Illuminate\View\View;
 
+use function Ramsey\Uuid\v1;
+
 class WooTiendaController extends Controller
 {
 	/**
@@ -32,19 +34,7 @@ class WooTiendaController extends Controller
 	public function index()
 	{
 
-		$data =
-			WooTienda::select(
-				'woo_tiendas.id',
-				'woo_tiendas.token',
-				'woo_tiendas.code',
-				'woo_tiendas.cuit',
-				'woo_tiendas.shop',
-				'woo_tiendas.fapiusr',
-				'woo_tiendas.fapiclave',
-				'woo_tiendas.hmac',
-				'woo_tiendas.host',
-				'woo_tiendas.state'
-			)
+		$data = DB::table('woo_tiendas')
 			->leftJoin(
 				DB::raw(
 					'(SELECT shopId, 
@@ -116,7 +106,7 @@ class WooTiendaController extends Controller
 	{
 		#$this->authorize('admin.store.show', $store);
 		#dd($store);
-		$woo_tiendas = Store::find($store);
+		$woo_tiendas = WooTienda::find($store);
 		return view('admin.store.show', [
 			'store' => $woo_tiendas,
 		]);
