@@ -18,19 +18,19 @@
 		<div>
 			<notifications position="bottom right" :duration="2000" />
 		</div>
-		<?php dd($data); 
+		<?php #dd($data); 
 		?>
 		<div class="row">
 			<div class="col-sm-6">
 				<div class="card">
 					<div class="card-header">
-						Orden Nro: {{ $data->order_nro }}
+						Orden Nro: {{ $data->order_key }}
 					</div>
 					<div class="card-body">
 						<h5 class="card-title">Datos Generales</h5>
-						<p class="card-text"><strong> Tracking ID:</strong> {{ $data->trackid }}</p>
-						<p class="card-text"><strong> Estado:</strong> {{ $data->financial_status }}</p>
+						<p class="card-text"><strong> Tracking ID:</strong> {{ $data->tracking_id }}</p>
 						<p class="card-text"><strong> Nombre:</strong> {{ $data->name }}</p>
+						<p class="card-text"><strong> Codigo:</strong> {{ $data->code }}</p>
 						<!--a href="#" class="btn btn-warning">Go somewhere</a-->
 					</div>
 				</div>
@@ -41,7 +41,7 @@
 						Estados
 					</div>
 					<div class="card-body">
-						<h4 class="card-text"><strong> Pagado:</strong> {{ $data->financial_status ?? 'NO PAID' }}</h4>
+						<h4 class="card-text"><strong> Acitve:</strong> {{ $data->active }}</h4>
 						<!--a href="#" class="btn btn-warning">Go somewhere</a-->
 					</div>
 				</div>

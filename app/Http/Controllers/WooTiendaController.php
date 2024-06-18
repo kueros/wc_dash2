@@ -8,7 +8,7 @@ use App\Http\Requests\Admin\Store\DestroyStore;
 use App\Http\Requests\Admin\Store\IndexStore;
 use App\Http\Requests\Admin\Store\StoreStore;
 use App\Http\Requests\Admin\Store\UpdateStore;
-use App\Models\IflowOrderData;
+use App\Models\WooTienda;
 use Brackets\AdminListing\Facades\AdminListing;
 use Exception;
 use Illuminate\Auth\Access\AuthorizationException;
@@ -20,61 +20,56 @@ use Illuminate\Routing\Redirector;
 use Illuminate\Support\Facades\DB;
 use Illuminate\View\View;
 
-class OrdersDetailController extends Controller
+class WooTiendaController extends Controller
 {
-
 	/**
 	 * Display a listing of the resource.
 	 *
-	 * @param IndexOrder $request
+	 * @param IndexStore $request
 	 * @return array|Factory|View
 	 */
 
-	public function index($request)
+	public function index()
 	{
-		#dd($request);
+
 		$data =
-			DB::table('woo_order')
-			->leftJoin('woo_order_data', 'woo_order.order_id', '=', 'woo_order_data.order_id')
-			->leftJoin('woo_tiendas', 'woo_order.id_tienda', '=', 'woo_tiendas.id')
-			->where('woo_order.order_id', '=', $request)
-			->first();
-			#dd($data);
-		$producto = 
-				DB::table('woo_order')
-				->leftJoin('woo_order_product', 'woo_order.order_id', '=', 'woo_order_product.order_id')
-				->where('woo_order.order_id', '=', $request)
-				->get();
-				#dd($producto);
-		return view('admin.order_detail.index', ['data' => $data], ['producto' => $producto]);
+			WooTienda::select(
+				'woo_tiendas.id',
+				'woo_tiendas.token',
+				'woo_tiendas.code',
+				'woo_tiendas.cuit',
+				'woo_tiendas.shop',
+				'woo_tiendas.fapiusr',
+				'woo_tiendas.fapiclave',
+				'woo_tiendas.hmac',
+				'woo_tiendas.host',
+				'woo_tiendas.state'
+			)
+			->leftJoin(
+				DB::raw(
+					'(SELECT shopId, 
+                                MAX(webhookId) AS webhookId, 
+                                MAX(url) AS url, 
+                                MAX(tipo) AS tipo, 
+                                MAX(state) AS state 
+                                FROM webhooks 
+                                GROUP BY shopId) AS grouped_webhooks'
+				),
+				function ($join) {
+					$join->on(
+						'woo_tiendas.id',
+						'=',
+						'grouped_webhooks.shopId'
+					);
+				}
+			)
+			->groupBy('woo_tiendas.id') // Agrupa por el campo woo_tiendas.id
+			->get();
+
+		#dd($data);
+		return view('admin.woo_tienda.index', ['data' => $data]);
 	}
 
-
-	public function index2(IndexStore $request)
-	{
-		// create and AdminListing instance for a specific model and
-		$data = AdminListing::create(Store::class)->processRequestAndGet(
-			// pass the request with params
-			$request,
-
-			// set columns to query
-			['id', 'token', 'code', 'cuit', 'shop', 'fapiusr', 'fapiclave', 'hmac', 'host', 'state'],
-
-			// set columns to searchIn
-			['id', 'token', 'code', 'cuit', 'shop', 'fapiusr', 'fapiclave', 'hmac', 'host', 'state']
-		);
-
-		if ($request->ajax()) {
-			if ($request->has('bulk')) {
-				return [
-					'bulkItems' => $data->pluck('id')
-				];
-			}
-			return ['data' => $data];
-		}
-
-		return view('admin.store.index', ['data' => $data]);
-	}
 
 	/**
 	 * Show the form for creating a new resource.
@@ -95,7 +90,7 @@ class OrdersDetailController extends Controller
 	 * @param StoreStore $request
 	 * @return array|RedirectResponse|Redirector
 	 */
-	public function store(StoreStore $request)
+	public function store(Store $request)
 	{
 		// Sanitize input
 		$sanitized = $request->getSanitized();
@@ -104,10 +99,10 @@ class OrdersDetailController extends Controller
 		$store = Store::create($sanitized);
 
 		if ($request->ajax()) {
-			return ['redirect' => url('admin/stores'), 'message' => trans('brackets/admin-ui::admin.operation.succeeded')];
+			return ['redirect' => url('admin/woo_tiendas'), 'message' => trans('brackets/admin-ui::admin.operation.succeeded')];
 		}
 
-		return redirect('admin/stores');
+		return redirect('admin/woo_tiendas');
 	}
 
 	/**
@@ -117,9 +112,14 @@ class OrdersDetailController extends Controller
 	 * @throws AuthorizationException
 	 * @return void
 	 */
-	public function show(Store $store)
+	public function show($store)
 	{
-		$this->authorize('admin.store.show', $store);
+		#$this->authorize('admin.store.show', $store);
+		#dd($store);
+		$woo_tiendas = Store::find($store);
+		return view('admin.store.show', [
+			'store' => $woo_tiendas,
+		]);
 
 		// TODO your code goes here
 	}
@@ -133,6 +133,7 @@ class OrdersDetailController extends Controller
 	 */
 	public function edit(Store $store)
 	{
+
 		$this->authorize('admin.store.edit', $store);
 
 
@@ -148,7 +149,7 @@ class OrdersDetailController extends Controller
 	 * @param Store $store
 	 * @return array|RedirectResponse|Redirector
 	 */
-	public function update(UpdateStore $request, Store $store)
+	public function update(Store $request, Store $store)
 	{
 		// Sanitize input
 		$sanitized = $request->getSanitized();
@@ -158,12 +159,12 @@ class OrdersDetailController extends Controller
 
 		if ($request->ajax()) {
 			return [
-				'redirect' => url('admin/stores'),
+				'redirect' => url('admin/woo_tiendas'),
 				'message' => trans('brackets/admin-ui::admin.operation.succeeded'),
 			];
 		}
 
-		return redirect('admin/stores');
+		return redirect('admin/woo_tiendas');
 	}
 
 	/**
@@ -174,7 +175,7 @@ class OrdersDetailController extends Controller
 	 * @throws Exception
 	 * @return ResponseFactory|RedirectResponse|Response
 	 */
-	public function destroy(DestroyStore $request, Store $store)
+	public function destroy(Store $request, Store $store)
 	{
 		$store->delete();
 
@@ -192,7 +193,7 @@ class OrdersDetailController extends Controller
 	 * @throws Exception
 	 * @return Response|bool
 	 */
-	public function bulkDestroy(BulkDestroyStore $request): Response
+	public function bulkDestroy(Store $request): Response
 	{
 		DB::transaction(static function () use ($request) {
 			collect($request->data['ids'])
