@@ -13,16 +13,17 @@ return new class extends Migration
     {
 		Schema::create('woo_tiendas', function (Blueprint $table) {
 			$table->id();
-			$table->string('cli_id')->nullable();
-			$table->string('token')->nullable();
-			$table->string('code')->nullable();;
-			$table->string('cuit')->nullable();
-			$table->string('shop')->nullable();
-			$table->string('fapiusr');
-			$table->string('fapiclave');
-			$table->string('hmac')->nullable();
-			$table->string('host')->nullable();
-			$table->string('state')->default('activo');
+			$table->string('woo_id_tienda')->nullable();
+			$table->string('url_create_order')->nullable();
+			$table->string('url_create_order_milo')->nullable();
+			$table->string('url_rate')->nullable();;
+			$table->string('url_cancel_order')->nullable();
+			$table->string('url_cancel_order_milo')->nullable();
+			$table->string('url_logistica_inversa')->nullable();
+			$table->string('url_download')->nullable();
+			$table->string('shipping_id')->nullable();
+			$table->string('key_shipping_id')->nullable();
+			$table->string('path_log')->nullable();
 			$table->timestamps();
 		});
     }

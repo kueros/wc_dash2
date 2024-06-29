@@ -13,21 +13,22 @@ return new class extends Migration
     {
         Schema::create('configs', function (Blueprint $table) {
             $table->id();
-            $table->string('urlroot');
-            $table->string('cli_id');
-            $table->string('cli_pass');
-            $table->string('re_dir_url');
-            $table->string('fi_logs');
-            $table->string('scope');
-            $table->string('callback_url_carrier');
-            $table->string('webhook_address_orders_create');
-            $table->string('webhook_address_orders_paid');
-            $table->string('webhook_address_orders_cancelled');
+            $table->string('woo_id_tienda');
+            $table->string('url_create_order');
+            $table->string('url_create_order_milo');
+            $table->string('url_rate');
+            $table->string('url_cancel_order');
+            $table->string('url_cancel_order_milo');
+            $table->string('url_logistica_inversa');
+            $table->string('url_download');
+            $table->string('shipping_id');
+			$table->string('key_shipping_id');
+			$table->string('path_log');
             $table->timestamps();
         });
     }
 
-    /**
+	/**
      * Reverse the migrations.
      */
     public function down(): void

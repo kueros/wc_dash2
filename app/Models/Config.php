@@ -37,7 +37,18 @@ class Config extends Model
      *
      * @var array<int, string>
      */
-    protected $fillable = ['urlroot', 'cli_id', 'cli_pass', 're_dir_url', 'fi_logs', 'scope', 'callback_url_carrier', 'webhook_address_orders_create', 'webhook_address_orders_paid', 'webhook_address_orders_cancelled', 'api_u', 'api_p', 'shop_test'];
-
-
+    protected $fillable = 
+					[
+						'woo_id_tienda',
+						'url_create_order', 
+						'url_create_order_milo', 
+						'url_rate', 
+						'url_cancel_order',
+						'url_cancel_order_milo', 
+						'url_logistica_inversa', 
+						'url_download', 
+						'shipping_id', 
+						'key_shipping_id', 
+						'path_log' 
+					];
 }

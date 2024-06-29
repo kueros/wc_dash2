@@ -17,44 +17,44 @@
 				</div>
 				<div class="card-body bg-white">
 					<div class="form-group mb-2 mb20">
-						<strong>Url Root:</strong>
-						{{ $config->urlroot }}
+						<strong>Url Create Order:</strong>
+						{{ $config->url_create_order }}
 					</div>
 					<div class="form-group mb-2 mb20">
-						<strong>Shopify Client Id:</strong>
-						{{ $config->cli_id }}
+						<strong>Url Create Order Milonga:</strong>
+						{{ $config->url_create_order_milo }}
 					</div>
 					<div class="form-group mb-2 mb20">
-						<strong>Shopify Client Secret:</strong>
-						{{ $config->cli_pass }}
+						<strong>Url Rate:</strong>
+						{{ $config->url_rate }}
 					</div>
 					<div class="form-group mb-2 mb20">
-						<strong>Url de Redirección:</strong>
-						{{ $config->re_dir_url }}
+						<strong>Url Cancel Order:</strong>
+						{{ $config->url_cancel_order }}
 					</div>
 					<div class="form-group mb-2 mb20">
-						<strong>Fi Logs:</strong>
-						{{ $config->fi_logs }}
+						<strong>Url Cancel Order Milonga:</strong>
+						{{ $config->url_cancel_order_milo }}
 					</div>
 					<div class="form-group mb-2 mb20">
-						<strong>Scope:</strong>
-						{{ $config->scope }}
+						<strong>Url Logistica Inversa:</strong>
+						{{ $config->url_logistica_inversa }}
 					</div>
 					<div class="form-group mb-2 mb20">
-						<strong>Callback Url Carrier:</strong>
-						{{ $config->callback_url_carrier }}
+						<strong>Url Download:</strong>
+						{{ $config->url_download }}
 					</div>
 					<div class="form-group mb-2 mb20">
-						<strong>Webhook Address Orders Create:</strong>
-						{{ $config->webhook_address_orders_create }}
+						<strong>Shipping ID:</strong>
+						{{ $config->shipping_id }}
 					</div>
 					<div class="form-group mb-2 mb20">
-						<strong>Webhook Address Orders Paid:</strong>
-						{{ $config->webhook_address_orders_paid }}
+						<strong>Key Sipping ID:</strong>
+						{{ $config->key_shipping_id }}
 					</div>
 					<div class="form-group mb-2 mb20">
-						<strong>Webhook Address Orders Cancelled:</strong>
-						{{ $config->webhook_address_orders_cancelled }}
+						<strong>Path Log:</strong>
+						{{ $config->path_log }}
 					</div>
 
 				</div>

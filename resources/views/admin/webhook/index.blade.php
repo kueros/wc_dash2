@@ -24,7 +24,7 @@
 					<div class="card-header" style="display: flex; justify-content: space-between; align-items: center;">
 						<div class="float-left">
 							<p class="float-left"><strong>WEBHOOKS</strong></p><br />
-							<a class="btn btn-warning btn-sm card-title" href="{{ route('stores/index') }}"> {{ __('Volver') }}</a>
+							<a class="btn btn-warning btn-sm card-title" href="{{ route('woo_tiendas/index') }}"> {{ __('Volver') }}</a>
 						</div>
 					</div>
 					<div class="card-body">

@@ -36,7 +36,7 @@ class OrdersDetailController extends Controller
 		$data =
 			DB::table('woo_order')
 			->leftJoin('woo_order_data', 'woo_order.order_id', '=', 'woo_order_data.order_id')
-			->leftJoin('woo_tiendas', 'woo_order.id_tienda', '=', 'woo_tiendas.id')
+			->leftJoin('woo_tiendas', 'woo_order.id_tienda', '=', 'woo_tiendas.woo_id_tienda')
 			->where('woo_order.order_id', '=', $request)
 			->first();
 			#dd($data);
@@ -49,32 +49,6 @@ class OrdersDetailController extends Controller
 		return view('admin.order_detail.index', ['data' => $data], ['producto' => $producto]);
 	}
 
-
-	public function index2(IndexStore $request)
-	{
-		// create and AdminListing instance for a specific model and
-		$data = AdminListing::create(Store::class)->processRequestAndGet(
-			// pass the request with params
-			$request,
-
-			// set columns to query
-			['id', 'token', 'code', 'cuit', 'shop', 'fapiusr', 'fapiclave', 'hmac', 'host', 'state'],
-
-			// set columns to searchIn
-			['id', 'token', 'code', 'cuit', 'shop', 'fapiusr', 'fapiclave', 'hmac', 'host', 'state']
-		);
-
-		if ($request->ajax()) {
-			if ($request->has('bulk')) {
-				return [
-					'bulkItems' => $data->pluck('id')
-				];
-			}
-			return ['data' => $data];
-		}
-
-		return view('admin.store.index', ['data' => $data]);
-	}
 
 	/**
 	 * Show the form for creating a new resource.

@@ -332,18 +332,13 @@ return [
 		],
 		[
 			'text' => 'stores',
-			'url' => 'stores',
+			'url' => 'woo-tiendas',
 			'icon' => 'fas fa-store',
 		],
 		[
 			'text' => 'users',
 			'url' => 'users',
 			'icon' => 'fas fa-fw fa-user',
-		],
-		[
-			'text' => 'states',
-			'url' => 'states',
-			'icon' => 'fas fa-tasks',
 		],
         [
             'text' => 'settings',

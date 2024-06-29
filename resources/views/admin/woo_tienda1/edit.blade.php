@@ -17,11 +17,11 @@
 
 
                     <div class="card-header">
-                        <i class="fa fa-pencil"></i> {{ trans('admin.store.actions.edit', ['name' => $store->id]) }}
+                        <i class="fa fa-pencil"></i> {{ trans('admin.woo_tiendas.actions.edit', ['name' => $store->id]) }}
                     </div>
 
                     <div class="card-body">
-                        @include('admin.store.components.form-elements')
+                        @include('admin.woo_tiendas.components.form-elements')
                     </div>
                     
                     

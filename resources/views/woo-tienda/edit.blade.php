@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('template_title')
-{{ __('Update') }} Config
+{{ __('Update') }} Woo Tienda
 @endsection
 
 @section('content')
@@ -15,13 +15,13 @@
 						<table>
 							<tr>
 								<td>
-									EDITAR CONFIGURACION
+									EDITAR TIENDA
 								</td>
 							</tr>
 							<tr>
 								<td>
-									<a href="{{ route('configs.index') }}" class="btn btn-warning btn-sm float-left" data-placement="left">
-										Cancelar
+									<a href="{{ route('woo-tiendasindex') }}" class="btn btn-warning btn-sm float-left" data-placement="left">
+										{{ __('Cancelar') }}
 									</a>
 								</td>
 							</tr>
@@ -29,11 +29,11 @@
 					</div>
 				</div>
 				<div class="card-body bg-white">
-					<form method="POST" action="/configupdate/<?php echo $configs->woo_id_tienda; ?>" role="form" enctype="multipart/form-data">
+					<form method="POST" action="/woo-tiendas/update/<?php echo $woo_tiendas->woo_id_tienda; ?>" role="form" enctype="multipart/form-data">
 						{{ method_field('PATCH') }}
 						@csrf
 
-						@include('config.form')
+						@include('woo-tienda.form')
 
 					</form>
 				</div>

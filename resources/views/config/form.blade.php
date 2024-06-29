@@ -1,59 +1,59 @@
 <div class="row padding-1 p-1">
-    <div class="col-md-12">
-        
-        <div class="form-group mb-2 mb20">
-            <label for="urlroot" class="form-label">{{ __('Url Root') }}</label>
-            <input type="text" name="urlroot" class="form-control @error('urlroot') is-invalid @enderror" value="{{ old('urlroot', $config?->urlroot) }}" id="urlroot" placeholder="Urlroot">
-            {!! $errors->first('urlroot', '<div class="invalid-feedback" role="alert"><strong>:message</strong></div>') !!}
-        </div>
-        <div class="form-group mb-2 mb20">
-            <label for="cli_id" class="form-label">{{ __('Shopify Client Id') }}</label>
-            <input type="text" name="cli_id" class="form-control @error('cli_id') is-invalid @enderror" value="{{ old('cli_id', $config?->cli_id) }}" id="cli_id" placeholder="Cli Id">
-            {!! $errors->first('cli_id', '<div class="invalid-feedback" role="alert"><strong>:message</strong></div>') !!}
-        </div>
-        <div class="form-group mb-2 mb20">
-            <label for="cli_pass" class="form-label">{{ __('Shopify Client Secret') }}</label>
-            <input type="text" name="cli_pass" class="form-control @error('cli_pass') is-invalid @enderror" value="{{ old('cli_pass', $config?->cli_pass) }}" id="cli_pass" placeholder="Cli Pass">
-            {!! $errors->first('cli_pass', '<div class="invalid-feedback" role="alert"><strong>:message</strong></div>') !!}
-        </div>
-        <div class="form-group mb-2 mb20">
-            <label for="re_dir_url" class="form-label">{{ __('Url de Redirección') }}</label>
-            <input type="text" name="re_dir_url" class="form-control @error('re_dir_url') is-invalid @enderror" value="{{ old('re_dir_url', $config?->re_dir_url) }}" id="re_dir_url" placeholder="Re Dir Url">
-            {!! $errors->first('re_dir_url', '<div class="invalid-feedback" role="alert"><strong>:message</strong></div>') !!}
-        </div>
-        <div class="form-group mb-2 mb20">
-            <label for="fi_logs" class="form-label">{{ __('Fi Logs') }}</label>
-            <input type="text" name="fi_logs" class="form-control @error('fi_logs') is-invalid @enderror" value="{{ old('fi_logs', $config?->fi_logs) }}" id="fi_logs" placeholder="Fi Logs">
-            {!! $errors->first('fi_logs', '<div class="invalid-feedback" role="alert"><strong>:message</strong></div>') !!}
-        </div>
-        <div class="form-group mb-2 mb20">
-            <label for="scope" class="form-label">{{ __('Scope') }}</label>
-            <input type="text" name="scope" class="form-control @error('scope') is-invalid @enderror" value="{{ old('scope', $config?->scope) }}" id="scope" placeholder="Scope">
-            {!! $errors->first('scope', '<div class="invalid-feedback" role="alert"><strong>:message</strong></div>') !!}
-        </div>
-        <div class="form-group mb-2 mb20">
-            <label for="callback_url_carrier" class="form-label">{{ __('Callback Url Carrier') }}</label>
-            <input type="text" name="callback_url_carrier" class="form-control @error('callback_url_carrier') is-invalid @enderror" value="{{ old('callback_url_carrier', $config?->callback_url_carrier) }}" id="callback_url_carrier" placeholder="Callback Url Carrier">
-            {!! $errors->first('callback_url_carrier', '<div class="invalid-feedback" role="alert"><strong>:message</strong></div>') !!}
-        </div>
-        <div class="form-group mb-2 mb20">
-            <label for="webhook_address_orders_create" class="form-label">{{ __('Webhook Address Orders Create') }}</label>
-            <input type="text" name="webhook_address_orders_create" class="form-control @error('webhook_address_orders_create') is-invalid @enderror" value="{{ old('webhook_address_orders_create', $config?->webhook_address_orders_create) }}" id="webhook_address_orders_create" placeholder="Webhook Address Orders Create">
-            {!! $errors->first('webhook_address_orders_create', '<div class="invalid-feedback" role="alert"><strong>:message</strong></div>') !!}
-        </div>
-        <div class="form-group mb-2 mb20">
-            <label for="webhook_address_orders_paid" class="form-label">{{ __('Webhook Address Orders Paid') }}</label>
-            <input type="text" name="webhook_address_orders_paid" class="form-control @error('webhook_address_orders_paid') is-invalid @enderror" value="{{ old('webhook_address_orders_paid', $config?->webhook_address_orders_paid) }}" id="webhook_address_orders_paid" placeholder="Webhook Address Orders Paid">
-            {!! $errors->first('webhook_address_orders_paid', '<div class="invalid-feedback" role="alert"><strong>:message</strong></div>') !!}
-        </div>
-        <div class="form-group mb-2 mb20">
-            <label for="webhook_address_orders_cancelled" class="form-label">{{ __('Webhook Address Orders Cancelled') }}</label>
-            <input type="text" name="webhook_address_orders_cancelled" class="form-control @error('webhook_address_orders_cancelled') is-invalid @enderror" value="{{ old('webhook_address_orders_cancelled', $config?->webhook_address_orders_cancelled) }}" id="webhook_address_orders_cancelled" placeholder="Webhook Address Orders Cancelled">
-            {!! $errors->first('webhook_address_orders_cancelled', '<div class="invalid-feedback" role="alert"><strong>:message</strong></div>') !!}
-        </div>
+	<div class="col-md-12">
 
-    </div>
-    <div class="col-md-12 mt20 mt-2">
-        <button type="submit" class="btn btn-primary">{{ __('Guardar') }}</button>
-    </div>
+		<div class="form-group mb-2 mb20">
+			<label for="url_create_order" class="form-label">Url Create Order</label>
+			<input type="text" name="url_create_order" class="form-control @error('url_create_order') is-invalid @enderror" value="{{ old('url_create_order', $configs?->url_create_order) }}" id="url_create_order" placeholder="Url Create Order">
+			{!! $errors->first('url_create_order', '<div class="invalid-feedback" role="alert"><strong>:message</strong></div>') !!}
+		</div>
+		<div class="form-group mb-2 mb20">
+			<label for="url_create_order_milo" class="form-label">Url Create Order Milonga</label>
+			<input type="text" name="url_create_order_milo" class="form-control @error('url_create_order_milo') is-invalid @enderror" value="{{ old('url_create_order_milo', $configs?->url_create_order_milo) }}" id="url_create_order_milo" placeholder="Url Create Order Milonga">
+			{!! $errors->first('url_create_order_milo', '<div class="invalid-feedback" role="alert"><strong>:message</strong></div>') !!}
+		</div>
+		<div class="form-group mb-2 mb20">
+			<label for="url_rate" class="form-label">Url Rate</label>
+			<input type="text" name="url_rate" class="form-control @error('url_rate') is-invalid @enderror" value="{{ old('url_rate', $configs?->url_rate) }}" id="url_rate" placeholder="Url Rate">
+			{!! $errors->first('url_rate', '<div class="invalid-feedback" role="alert"><strong>:message</strong></div>') !!}
+		</div>
+		<div class="form-group mb-2 mb20">
+			<label for="url_cancel_order" class="form-label">Url Cancel Order</label>
+			<input type="text" name="url_cancel_order" class="form-control @error('url_cancel_order') is-invalid @enderror" value="{{ old('url_cancel_order', $configs?->url_cancel_order) }}" id="url_cancel_order" placeholder="Url Cancel Order">
+			{!! $errors->first('url_cancel_order', '<div class="invalid-feedback" role="alert"><strong>:message</strong></div>') !!}
+		</div>
+		<div class="form-group mb-2 mb20">
+			<label for="url_cancel_order_milo" class="form-label">Url Cancel Order Milonga</label>
+			<input type="text" name="url_cancel_order_milo" class="form-control @error('url_cancel_order_milo') is-invalid @enderror" value="{{ old('url_cancel_order_milo', $configs?->url_cancel_order_milo) }}" id="url_cancel_order_milo" placeholder="Url Cancel Order Milonga">
+			{!! $errors->first('url_cancel_order_milo', '<div class="invalid-feedback" role="alert"><strong>:message</strong></div>') !!}
+		</div>
+		<div class="form-group mb-2 mb20">
+			<label for="url_logistica_inversa" class="form-label">Url Logistica Inversa</label>
+			<input type="text" name="url_logistica_inversa" class="form-control @error('url_logistica_inversa') is-invalid @enderror" value="{{ old('url_logistica_inversa', $configs?->url_logistica_inversa) }}" id="url_logistica_inversa" placeholder="Url Logistica Inversa">
+			{!! $errors->first('url_logistica_inversa', '<div class="invalid-feedback" role="alert"><strong>:message</strong></div>') !!}
+		</div>
+		<div class="form-group mb-2 mb20">
+			<label for="url_download" class="form-label">Url Download</label>
+			<input type="text" name="url_download" class="form-control @error('url_download') is-invalid @enderror" value="{{ old('url_download', $configs?->url_download) }}" id="url_download" placeholder="Url Download">
+			{!! $errors->first('url_download', '<div class="invalid-feedback" role="alert"><strong>:message</strong></div>') !!}
+		</div>
+		<div class="form-group mb-2 mb20">
+			<label for="shipping_id" class="form-label">Shipping ID</label>
+			<input type="text" name="shipping_id" class="form-control @error('shipping_id') is-invalid @enderror" value="{{ old('shipping_id', $configs?->shipping_id) }}" id="shipping_id" placeholder="Shipping ID">
+			{!! $errors->first('shipping_id', '<div class="invalid-feedback" role="alert"><strong>:message</strong></div>') !!}
+		</div>
+		<div class="form-group mb-2 mb20">
+			<label for="key_shipping_id" class="form-label">Key Sipping ID</label>
+			<input type="text" name="key_shipping_id" class="form-control @error('key_shipping_id') is-invalid @enderror" value="{{ old('key_shipping_id', $configs?->key_shipping_id) }}" id="key_shipping_id" placeholder="Key Sipping ID">
+			{!! $errors->first('key_shipping_id', '<div class="invalid-feedback" role="alert"><strong>:message</strong></div>') !!}
+		</div>
+		<div class="form-group mb-2 mb20">
+			<label for="path_log" class="form-label">Path Log</label>
+			<input type="text" name="path_log" class="form-control @error('path_log') is-invalid @enderror" value="{{ old('path_log', $configs?->path_log) }}" id="path_log" placeholder="Path Log">
+			{!! $errors->first('path_log', '<div class="invalid-feedback" role="alert"><strong>:message</strong></div>') !!}
+		</div>
+
+	</div>
+	<div class="col-md-12 mt20 mt-2">
+		<button type="submit" class="btn btn-primary">{{ __('Guardar') }}</button>
+	</div>
 </div>

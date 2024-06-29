@@ -31,8 +31,9 @@ class CarriersController extends Controller
      */
     public function index($request)
     {
+		#dd($request);
 		$data = DB::table('carrier_services')
-		->leftJoin('woo_tiendas', 'carrier_services.shopId', '=', 'woo_tiendas.id')
+		->leftJoin('woo_tiendas', 'carrier_services.shopId', '=', 'woo_tiendas.woo_id_tienda')
 			->where('carrier_services.shopId', $request)
 		->get();
 

@@ -21,14 +21,14 @@
 		<div class="row">
 			<div class="col">
 				<div class="card">
-					<div class="card-header"><i class="fa fa-align-justify"></i> Tiendas
+					<div class="card-header"><i class="fa fa-align-justify"></i> Tiendas asdfasdf
 					</div>
 					<div class="card-body">
 						<div class="card-block">
 							<table id="example" class="hover" style="width:100%">
 								<thead>
 									<th>Acciones</th>
-									<th>Shop</th>
+									<th>Nombre</th>
 									<th>Cuit</th>
 									<th>Estado</th>
 								</thead>
@@ -48,15 +48,15 @@
 													</a>
 												</div>
 												<div class="col-auto">
-													<a class="btn btn-sm btn-spinner btn-warning" href="{{ url('stores/show/'.$datos->id) }}" title="Webhooks" role="button" style="margin-right: 5px;">
+													<a class="btn btn-sm btn-spinner btn-warning" href="{{ url('woo_tiendas/show/'.$datos->id) }}" title="Webhooks" role="button" style="margin-right: 5px;">
 														<i class="fa fa-eye" aria-hidden="true"></i>
 													</a>
 												</div>
 											</div>
 										</td>
-										<td>{{ $datos->shop }}</td>
+										<td>{{ $datos->razon_social }}</td>
 										<td>{{ $datos->cuit }}</td>
-										<td>{{ $datos->state }}</td>
+										<td>{{ $datos->activo }}</td>
 									</tr>
 									@endforeach
 								</tbody>

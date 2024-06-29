@@ -19,7 +19,7 @@ class WooOrderController extends Controller
     {
 
 		$data = DB::table('woo_order')
-		->leftJoin('woo_tiendas', 'woo_order.id_tienda', '=', 'woo_tiendas.id')
+		->leftJoin('woo_tiendas', 'woo_order.id_tienda', '=', 'woo_tiendas.woo_id_tienda')
 		->get();
 
 

@@ -15,12 +15,13 @@ return new class extends Migration
 			$table->integer('id')->index('id');
 			$table->string('id_tienda', 100);
 			$table->string('usr_milo', 100);
-			$table->string('psw_milo', 50);
+			$table->string('psw_milo', 255);
 			$table->string('CustomerCode', 10)->nullable();
 			$table->string('FirstName', 100)->nullable();
 			$table->string('LastName', 100)->nullable();
 			$table->string('Telephone', 25)->nullable();
 			$table->string('Email', 100)->nullable();
+			$table->timestamps();
 		});
 
     }

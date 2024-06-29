@@ -8,7 +8,8 @@ use App\Http\Requests\Admin\Store\DestroyStore;
 use App\Http\Requests\Admin\Store\IndexStore;
 use App\Http\Requests\Admin\Store\StoreStore;
 use App\Http\Requests\Admin\Store\UpdateStore;
-use App\Models\Store;
+use App\Models\WooTienda;
+use App\Models\WooUsrMilo;
 use Brackets\AdminListing\Facades\AdminListing;
 use Exception;
 use Illuminate\Auth\Access\AuthorizationException;
@@ -20,9 +21,10 @@ use Illuminate\Routing\Redirector;
 use Illuminate\Support\Facades\DB;
 use Illuminate\View\View;
 
-class StoresController extends Controller
-{
+use function Ramsey\Uuid\v1;
 
+class WooTiendaController extends Controller
+{
 	/**
 	 * Display a listing of the resource.
 	 *
@@ -32,43 +34,15 @@ class StoresController extends Controller
 
 	public function index()
 	{
+		#$data = WooTienda::get(); 
+		$data = DB::table('woo_tiendas')
+            ->select('*')
+            ->get();
 
-		$data =
-			Store::select(
-				'stores.id',
-				'stores.token',
-				'stores.code',
-				'stores.cuit',
-				'stores.shop',
-				'stores.fapiusr',
-				'stores.fapiclave',
-				'stores.hmac',
-				'stores.host',
-				'stores.state'
-			)
-			->leftJoin(
-				DB::raw(
-					'(SELECT shopId, 
-                                MAX(webhookId) AS webhookId, 
-                                MAX(url) AS url, 
-                                MAX(tipo) AS tipo, 
-                                MAX(state) AS state 
-                                FROM webhooks 
-                                GROUP BY shopId) AS grouped_webhooks'
-				),
-				function ($join) {
-					$join->on(
-						'stores.id',
-						'=',
-						'grouped_webhooks.shopId'
-					);
-				}
-			)
-			->groupBy('stores.id') // Agrupa por el campo stores.id
-			->get();
+		$milonga = WooUsrMilo::paginate();
 
 		#dd($data);
-		return view('admin.store.index', ['data' => $data]);
+		return view('admin.woo_tienda.index', ['data' => $data],['milonga' => $milonga]);
 	}
 
 
@@ -83,10 +57,11 @@ class StoresController extends Controller
 	{
 		#$this->authorize('admin.store.show', $store);
 		#dd($store);
-		$stores = Store::find($store);
-		$milonga = Store::find($store);
-		return view('admin.store.show', [
-			'store' => $stores,
+		$woo_tiendas = WooTienda::where('woo_id_tienda', '=', $store)->get()->first();
+		$milonga = WooUsrMilo::where('id_tienda', '=', $store)->get();
+		#dd($woo_tiendas);
+		return view('woo-tienda.show', [
+			'store' => $woo_tiendas,
 			'milonga' => $milonga,
 		]);
 
@@ -121,10 +96,10 @@ class StoresController extends Controller
 		$store = Store::create($sanitized);
 
 		if ($request->ajax()) {
-			return ['redirect' => url('admin/stores'), 'message' => trans('brackets/admin-ui::admin.operation.succeeded')];
+			return ['redirect' => url('admin/woo_tiendas'), 'message' => trans('brackets/admin-ui::admin.operation.succeeded')];
 		}
 
-		return redirect('admin/stores');
+		return redirect('admin/woo_tiendas');
 	}
 
 	/**
@@ -134,14 +109,13 @@ class StoresController extends Controller
 	 * @throws AuthorizationException
 	 * @return Factory|View
 	 */
-	public function edit(Store $store)
+	public function edit($woo_id_tienda)
 	{
 
-		$this->authorize('admin.store.edit', $store);
+		$this->authorize('woo-tiendas.edit', $woo_id_tienda);
 
-
-		return view('admin.store.edit', [
-			'store' => $store,
+		return view('woo-tiendas.edit', [
+			'store' => $woo_id_tienda,
 		]);
 	}
 
@@ -162,12 +136,12 @@ class StoresController extends Controller
 
 		if ($request->ajax()) {
 			return [
-				'redirect' => url('admin/stores'),
+				'redirect' => url('admin/woo_tiendas'),
 				'message' => trans('brackets/admin-ui::admin.operation.succeeded'),
 			];
 		}
 
-		return redirect('admin/stores');
+		return redirect('admin/woo_tiendas');
 	}
 
 	/**

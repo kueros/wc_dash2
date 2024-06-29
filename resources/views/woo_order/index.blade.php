@@ -21,7 +21,7 @@
 		<div class="row">
 			<div class="col">
 				<div class="card">
-					<div class="card-header"><i class="fa fa-align-justify"></i> Ordenes
+					<div class="card-header"><i class="fa fa-align-justify"></i> ORDENES
 					</div>
 					<div class="card-body">
 						<div class="card-block">
@@ -49,9 +49,9 @@
 											</div>
 										</td>
 										<td>{{ $datos->order_id }}</td>
-										<td>{{ $datos->shop }}</td>
+										<td>{{ $datos->razon_social }}</td>
 										<td>{{ $datos->tracking_id }}</td>
-										<td>{{ $datos->state }}</td>
+										<td>{{ $datos->active }}</td>
 										<td>{{ $datos->created_at }}</td>
 										<td>{{ $datos->shipment_id }}</td>
 										<td>{{ $datos->print_url }}</td>

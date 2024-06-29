@@ -4,7 +4,9 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\StateController;
 use App\Http\Controllers\User2Controller;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\WooUsrMiloController;
 use App\Http\Controllers\ConfigController;
+use App\Http\Controllers\WooTiendaController;
 
 
 /*
@@ -33,17 +35,35 @@ Route::resource('states', StateController::class);
 
 Route::resource('users', UserController::class);
 
+Route::get('/configshow/{id}',              'App\Http\Controllers\ConfigController@show');
+Route::get('/configedit/{id}',              'App\Http\Controllers\ConfigController@edit');
+Route::get('/configindex',              	'App\Http\Controllers\ConfigController@index');
+Route::patch('configupdate/{id}', 			'App\Http\Controllers\ConfigController@update');
 Route::resource('configs', ConfigController::class);
+
+#Route::resource('woo_tiendas', WooTiendaController::class);
+
+Route::prefix('woo-tiendas')->namespace('App\Http\Controllers')->name('woo-tiendas')->middleware('auth')->group(static function () {
+	Route::get('/', 'WooTiendaController@index')->name('index');
+	Route::get('create/', 'WooTiendaController@create')->name('create');
+	Route::delete('destroy/{id}', 'WooTiendaController@destroy')->name('destroy');
+	Route::get('/show/{id}', 'WooTiendaController@show')->name('show');
+	Route::get('/edit/{id}', 'WooTiendaController@edit')->name('edit');
+	Route::patch('update/{id}', 'WooTiendaController@update')->name('update');
+});
+
+#Route::resource('woo-tiendas', WooTiendaController::class);
+Route::post('/woo-tiendas-store',              'App\Http\Controllers\WooTiendaController@store');
+
+Route::prefix('woo-usr-milos')->namespace('App\Http\Controllers')->name('woo-usr-milos/')->middleware('auth')->group(static function () {
+	Route::get('/index1/{id_tienda}', 'WooUsrMiloController@index1')->name('index1');
+});
+Route::resource('woo-usr-milos', WooUsrMiloController::class);
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::prefix('webhooks')->namespace('App\Http\Controllers')->name('webhooks/')->middleware('auth')->group(static function() {
 	Route::get('/{id}', 'WebhooksController@index')->name('index');
-});
-
-Route::prefix('stores')->namespace('App\Http\Controllers')->name('stores/')->middleware('auth')->group(static function () {
-	Route::get('/', 'WooTiendaController@index')->name('index');
-	Route::get('/show/{id}', 'WooTiendaController@show')->name('show');
 });
 
 Route::prefix('carriers')->namespace('App\Http\Controllers')->name('carriers/')->middleware('auth')->group(static function() {

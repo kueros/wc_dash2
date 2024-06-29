@@ -6,54 +6,48 @@ Configs
 
 @section('content')
 <div class="container-fluid">
-    <div class="row">
-        <div class="col-sm-12">
-            <div class="card">
-                <div class="card-header">
-                    <div style="display: flex; justify-content: space-between; align-items: center;">
+	<div class="row">
+		<div class="col-sm-12">
+			<div class="card">
+				<div class="card-header">
+					<div style="display: flex; justify-content: space-between; align-items: center;">
 
-                        <span id="card_title">
-                            {{ __('Configs') }}
-                        </span>
-                    </div>
-                </div>
-                @if ($message = Session::get('success'))
-                <div class="alert alert-success m-4">
-                    <p>{{ $message }}</p>
-                </div>
-                @endif
+						<span id="card_title">
+							Configuracion
+						</span>
+					</div>
+				</div>
 
-                <div class="card-body bg-white">
-                    <div class="table-responsive">
-                        <table class="table table-striped table-hover">
-                            <thead class="thead">
-                                <tr>
-                                    <th></th>
-                                    <th>Url Root</th>
-                                    <th>Shopify Client Id</th>
-                                    <th>Shopify Client Secret</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                @foreach ($configs as $config)
-                                <tr>
-                                    <td>
-                                        <a class="btn btn-sm btn-warning " href="{{ route('configs.show', $config->id) }}"><i class="fa fa-fw fa-eye"></i></a>
-                                        <a class="btn btn-sm btn-warning" href="{{ route('configs.edit', $config->id) }}"><i class="fa fa-fw fa-edit"></i></a>
-                                        @csrf
-                                    </td>
-                                    <td>{{ $config->urlroot }}</td>
-                                    <td>{{ $config->cli_id }}</td>
-                                    <td>{{ $config->cli_pass }}</td>
-                                </tr>
-                                @endforeach
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-            </div>
-            {!! $configs->withQueryString()->links() !!}
-        </div>
-    </div>
+				<div class="card-body bg-white">
+					<div class="table-responsive">
+						<table class="table table-striped table-hover">
+							<thead class="thead">
+								<tr>
+									<th></th>
+									<th>Nombre de la Tienda</th>
+									<th>CUIT</th>
+									<th>URL Secret</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td>
+										<?php #echo $configs['woo_id_tienda']; #die(); 
+										?>
+										<a class="btn btn-sm btn-warning " href="/configshow/<?php echo $configs['woo_id_tienda']; ?>"><i class="fa fa-fw fa-eye"></i></a>
+										<a class="btn btn-sm btn-warning" href="/configedit/<?php echo $configs['woo_id_tienda']; ?>"><i class=" fa fa-fw fa-edit"></i></a>
+										@csrf
+									</td>
+									<td>{{ $configs['razon_social'] }}</td>
+									<td>{{ $configs['cuit'] }}</td>
+									<td>{{ $configs['url_tienda'] }}</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
 </div>
 @endsection
