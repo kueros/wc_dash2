@@ -13,7 +13,22 @@
 
 			<div class="card card-default">
 				<div class="card-header">
-					<span class="card-title">{{ __('Create') }} Woo Tienda1</span>
+					<div style="display: flex; justify-content: space-between; align-items: left;">
+						<table>
+							<tr>
+								<td>
+									<strong>CREAR TIENDAS</strong>
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<a href="{{ route('woo-tiendasindex') }}" class="btn btn-warning btn-sm float-left" data-placement="left">
+										Cancelar
+									</a>
+								</td>
+							</tr>
+						</table>
+					</div>
 				</div>
 				<div class="card-body bg-white">
 					<form method="POST" action="http://localhost:8000/woo-tiendas-store" role="form" enctype="multipart/form-data">

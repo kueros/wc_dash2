@@ -16,7 +16,7 @@
 						<table>
 							<tr>
 								<td>
-									MOSTRAR TIENDA
+									<strong>MOSTRAR TIENDA</strong>
 								</td>
 							</tr>
 							<tr>

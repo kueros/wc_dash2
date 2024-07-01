@@ -23,13 +23,18 @@ Woo Tiendas
 							<table>
 								<tr>
 									<td>
-										TIENDAS
+										<strong>TIENDAS</strong>
 									</td>
 								</tr>
 								<tr>
 									<td>
 										<a href="{{ url('woo-tiendas/create') }}" class="btn btn-warning btn-sm float-left" data-placement="left">
 											{{ __('Crear Tienda') }}
+										</a>
+									</td>
+									<td>
+										<a href="{{ url('home') }}" class="btn btn-warning btn-sm float-left" data-placement="left">
+											Volver
 										</a>
 									</td>
 								</tr>
@@ -44,6 +49,8 @@ Woo Tiendas
 									<th>Nombre</th>
 									<th>Cuit</th>
 									<th>Estado</th>
+									<th>Fecha de Alta</th>
+									<th>Fecha de Actualizacion</th>
 								</thead>
 								<tbody>
 									@foreach ($data as $datos)
@@ -51,20 +58,14 @@ Woo Tiendas
 										<td>
 											<div class="row no-gutters">
 												<div class="col-auto">
-													<a class="btn btn-sm btn-spinner btn-warning" href="{{ url('carriers/'.$datos->woo_id_tienda) }}" title="Carrier Services" role="button" style="margin-right: 5px;">
-														<i class="fa fa-truck" aria-hidden="true"></i>
-													</a>
-												</div>
-												<div class="col-auto">
 													<form action="/woo-tiendas/destroy/<?php echo $datos->woo_id_tienda; ?>" method="POST">
-														<?php #var_dump($datos->woo_id_tienda);
-														#var_dump(route('woo-tiendasshow', [$datos->woo_id_tienda]));
-														#die(); 
-														?>
+														<a class="btn btn-sm btn-spinner btn-warning" href="{{ url('carriers/'.$datos->woo_id_tienda) }}" title="Carrier Services" role="button" style="margin-right: 5px;">
+															<i class="fa fa-truck" aria-hidden="true"></i>&nbsp;Carrier Services
+														</a>
 														<a class="btn btn-sm btn-spinner btn-warning" href="/woo-tiendas/show/<?php echo $datos->woo_id_tienda; ?>" title="Webhooks" role="button" style="margin-right: 5px;">
 															<i class="fa fa-eye" aria-hidden="true"></i>&nbsp;Mostrar
 														</a>
-														<a class="btn btn-sm btn-warning" href="/woo-tiendas/edit/<?php echo $datos->woo_id_tienda; ?>"><i class="fa fa-fw fa-edit"></i> Editar</a>
+														<a class="btn btn-sm btn-warning" href="/woo-tiendas/edit/<?php echo $datos->woo_id_tienda; ?>"><i class="fa fa-fw fa-edit"></i> Editar</a>&nbsp;
 														@csrf
 														@method('DELETE')
 														<button type="submit" class="btn btn-warning btn-sm" onclick="event.preventDefault(); confirm('Are you sure to delete?') ? this.closest('form').submit() : false;"><i class="fa fa-fw fa-trash"></i> Borrar</button>
@@ -75,6 +76,8 @@ Woo Tiendas
 										<td>{{ $datos->razon_social }}</td>
 										<td>{{ $datos->cuit }}</td>
 										<td>{{ $datos->activo }}</td>
+										<td>{{ $datos->f_alta }}</td>
+										<td>{{ $datos->f_update }}</td>
 									</tr>
 									@endforeach
 								</tbody>

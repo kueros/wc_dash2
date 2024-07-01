@@ -35,6 +35,11 @@ Route::resource('states', StateController::class);
 
 Route::resource('users', UserController::class);
 
+
+Route::get('/error_configs', function () {
+	return view('error_configs');
+});
+
 Route::get('/configshow/{id}',              'App\Http\Controllers\ConfigController@show');
 Route::get('/configedit/{id}',              'App\Http\Controllers\ConfigController@edit');
 Route::get('/configindex',              	'App\Http\Controllers\ConfigController@index');

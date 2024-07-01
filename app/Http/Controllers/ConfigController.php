@@ -17,12 +17,16 @@ class ConfigController extends Controller
 	 */
 	public function index(Request $request): View
 	{
+		#Cargo las variables desde la tabla de configs
 		$configs =
 			DB::table('configs')
 			->leftJoin('woo_tiendas', 'configs.woo_id_tienda', '=', 'woo_tiendas.woo_id_tienda')
 			->first();
-		#dd($configs);
-		#$configs = Config::paginate();
+
+		if (is_null($configs)) {
+			header('Location: error_configs');
+			exit;
+		}
 
 		$configs = collect($configs);
 

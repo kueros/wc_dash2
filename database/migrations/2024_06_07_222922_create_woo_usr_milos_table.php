@@ -11,7 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-		Schema::create('woo_usr_milo', function (Blueprint $table) {
+		Schema::create('woo_usr_milos', function (Blueprint $table) {
 			$table->integer('id')->index('id');
 			$table->string('id_tienda', 100);
 			$table->string('usr_milo', 100);

@@ -12,7 +12,7 @@ return new class extends Migration
     public function up(): void
     {
 		#Equivalente a (sf_dash) woo_order_product
-		Schema::create('woo_woo_order_productuct', function (Blueprint $table) {
+		Schema::create('woo_order_product', function (Blueprint $table) {
 			$table->integer('id')->primary();
 			$table->string('order_id', 25)->nullable();
 			$table->string('line_items_id', 25)->nullable();

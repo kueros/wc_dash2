@@ -21,7 +21,23 @@
 		<div class="row">
 			<div class="col">
 				<div class="card">
-					<div class="card-header"><i class="fa fa-align-justify"></i> ORDENES
+					<div class="card-header">
+						<div style="display: flex; justify-content: space-between; align-items: left;">
+							<table>
+								<tr>
+									<td>
+										<strong>ORDENES</strong>
+									</td>
+								</tr>
+								<tr>
+									<td>
+										<a href="{{ route('home') }}" class="btn btn-warning btn-sm float-left" data-placement="left">
+											Volver
+										</a>
+									</td>
+								</tr>
+							</table>
+						</div>
 					</div>
 					<div class="card-body">
 						<div class="card-block">

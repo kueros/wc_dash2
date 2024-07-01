@@ -14,19 +14,22 @@ return new class extends Migration
 		Schema::create('woo_tiendas', function (Blueprint $table) {
 			$table->id();
 			$table->string('woo_id_tienda')->nullable();
-			$table->string('url_create_order')->nullable();
-			$table->string('url_create_order_milo')->nullable();
-			$table->string('url_rate')->nullable();;
-			$table->string('url_cancel_order')->nullable();
-			$table->string('url_cancel_order_milo')->nullable();
-			$table->string('url_logistica_inversa')->nullable();
-			$table->string('url_download')->nullable();
-			$table->string('shipping_id')->nullable();
-			$table->string('key_shipping_id')->nullable();
-			$table->string('path_log')->nullable();
+			$table->string('razon_social')->nullable();
+			$table->string('cuit')->nullable();
+			$table->string('usr_api')->nullable();;
+			$table->string('psw_api')->nullable();
+			$table->string('f_alta')->nullable();
+			$table->string('f_update')->nullable();
+			$table->string('id_tienda')->nullable();
+			$table->string('prefijo')->nullable();
+			$table->string('ck_tienda')->nullable();
+			$table->string('cs_tienda')->nullable();
+			$table->string('url_tienda')->nullable();
+			$table->string('activo')->default('SI');
 			$table->timestamps();
 		});
     }
+
 
     /**
      * Reverse the migrations.

@@ -10,11 +10,21 @@ Configs
 		<div class="col-sm-12">
 			<div class="card">
 				<div class="card-header">
-					<div style="display: flex; justify-content: space-between; align-items: center;">
-
-						<span id="card_title">
-							Configuracion
-						</span>
+					<div style="display: flex; justify-content: space-between; align-items: left;">
+						<table>
+							<tr>
+								<td>
+									<strong>CONFIGURACION</strong>
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<a href="{{ url('home') }}" class="btn btn-warning btn-sm float-left" data-placement="left">
+										Volver
+									</a>
+								</td>
+							</tr>
+						</table>
 					</div>
 				</div>
 
@@ -34,8 +44,8 @@ Configs
 									<td>
 										<?php #echo $configs['woo_id_tienda']; #die(); 
 										?>
-										<a class="btn btn-sm btn-warning " href="/configshow/<?php echo $configs['woo_id_tienda']; ?>"><i class="fa fa-fw fa-eye"></i></a>
-										<a class="btn btn-sm btn-warning" href="/configedit/<?php echo $configs['woo_id_tienda']; ?>"><i class=" fa fa-fw fa-edit"></i></a>
+										<a class="btn btn-sm btn-warning " href="/configshow/<?php echo $configs['woo_id_tienda']; ?>"><i class="fa fa-fw fa-eye"></i> Mostrar</a>
+										<a class="btn btn-sm btn-warning" href="/configedit/<?php echo $configs['woo_id_tienda']; ?>"><i class=" fa fa-fw fa-edit"></i>Editar</a>
 										@csrf
 									</td>
 									<td>{{ $configs['razon_social'] }}</td>

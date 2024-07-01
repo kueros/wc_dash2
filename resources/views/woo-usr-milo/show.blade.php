@@ -1,28 +1,36 @@
 @extends('layouts.app')
 
-@section('template_title')
-{{ $wooUsrMilo->name ?? __('Show') . " " . __('Woo Usr Milo') }}
-@endsection
-
 @section('content')
+<?php #echo $wooUsrMilo;die(); 
+?>
 <section class="content container-fluid">
 	<div class="row">
 		<div class="col-md-12">
 			<div class="card">
-				<div class="card-header" style="display: flex; justify-content: space-between; align-items: center;">
-					<div class="float-left">
-						<span class="card-title">{{ __('Show') }} Woo Usr Milo</span>
-					</div>
-					<div class="float-right">
-						<a class="btn btn-primary btn-sm" href="/woo-usr-milos/index1/{{$wooUsrMilo->id_tienda}}"> {{ __('Back') }}</a>
+				<div class="card-header">
+					<div style="display: flex; justify-content: space-between; align-items: left;">
+						<table>
+							<tr>
+								<td>
+									<strong>MOSTRAR USUARIOS DE MILONGA</strong>
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<a href="{{ route('woo-tiendasindex') }}" class="btn btn-warning btn-sm float-left" data-placement="left">
+										{{ __('Volver') }}
+									</a>
+								</td>
+							</tr>
+						</table>
 					</div>
 				</div>
 
 				<div class="card-body bg-white">
 
 					<div class="form-group mb-2 mb20">
-						<strong>Id Tienda:</strong>
-						{{ $wooUsrMilo->id_tienda }}
+						<strong>Nombre Tienda:</strong>
+						{{ $wooUsrMilo->razon_social }}
 					</div>
 					<div class="form-group mb-2 mb20">
 						<strong>Usr Milo:</strong>

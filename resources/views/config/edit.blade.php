@@ -15,7 +15,7 @@
 						<table>
 							<tr>
 								<td>
-									EDITAR CONFIGURACION
+									<strong>EDITAR CONFIGURACION</strong>
 								</td>
 							</tr>
 							<tr>

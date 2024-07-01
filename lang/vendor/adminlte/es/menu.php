@@ -3,7 +3,7 @@
 return [
 
 	'main_navigation' => 'MENU PRINCIPAL',
-	'dashboard' => 'WOOCOMMERCE',
+	'dashboard' => 'DASHBOARD',
 	'blog' => 'Blog',
 	'pages' => 'Páginas',
 	'account_settings' => 'AJUSTES DE LA CUENTA',
