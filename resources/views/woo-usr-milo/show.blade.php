@@ -17,7 +17,7 @@
 							</tr>
 							<tr>
 								<td>
-									<a href="{{ route('woo-tiendasindex') }}" class="btn btn-warning btn-sm float-left" data-placement="left">
+									<a href="javascript:history.back();" class="btn btn-warning btn-sm float-left" data-placement="left">
 										{{ __('Volver') }}
 									</a>
 								</td>

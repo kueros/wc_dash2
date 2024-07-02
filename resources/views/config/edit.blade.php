@@ -18,13 +18,6 @@
 									<strong>EDITAR CONFIGURACION</strong>
 								</td>
 							</tr>
-							<tr>
-								<td>
-									<a href="{{ route('configs.index') }}" class="btn btn-warning btn-sm float-left" data-placement="left">
-										Cancelar
-									</a>
-								</td>
-							</tr>
 						</table>
 					</div>
 				</div>

@@ -28,8 +28,8 @@ class WooUsrMiloController extends Controller
 		#dd($request);
 
 		$wooUsrMilos =
-			DB::table('woo_usr_milo')
-			->leftJoin('woo_tiendas', 'woo_usr_milo.id_tienda', '=', 'woo_tiendas.woo_id_tienda')
+			DB::table('woo_usr_milos')
+			->leftJoin('woo_tiendas', 'woo_usr_milos.id_tienda', '=', 'woo_tiendas.woo_id_tienda')
 			->where('woo_tiendas.woo_id_tienda', '=', $request)
 			->get();
 		#dd($wooUsrMilos);
@@ -65,9 +65,9 @@ class WooUsrMiloController extends Controller
 	public function show($id): View
 	{
 		$wooUsrMilo = 
-		DB::table('woo_usr_milo')
-			->leftJoin('woo_tiendas', 'woo_usr_milo.id_tienda', '=', 'woo_tiendas.woo_id_tienda')
-			->where('woo_usr_milo.id', '=', $id)
+		DB::table('woo_usr_milos')
+			->leftJoin('woo_tiendas', 'woo_usr_milos.id_tienda', '=', 'woo_tiendas.woo_id_tienda')
+			->where('woo_usr_milos.id', '=', $id)
 			->first();
 
 		return view('woo-usr-milo.show', compact('wooUsrMilo'));

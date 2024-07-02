@@ -18,13 +18,6 @@
 									EDITAR TIENDA
 								</td>
 							</tr>
-							<tr>
-								<td>
-									<a href="{{ route('woo-tiendasindex') }}" class="btn btn-warning btn-sm float-left" data-placement="left">
-										{{ __('Cancelar') }}
-									</a>
-								</td>
-							</tr>
 						</table>
 					</div>
 				</div>
