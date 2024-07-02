@@ -20,7 +20,6 @@
 			<div class="icon">
 				<i class="ion ion-bag"></i>
 			</div>
-			<a href="http://localhost:8000/woo_order" class="small-box-footer" style="color:orange;">Ir a Ordenes <i class="fas fa-arrow-circle-right"></i></a>
 		</div>
 	</div>
 
@@ -34,7 +33,6 @@
 			<div class="icon">
 				<i class="ion ion-stats-bars"></i>
 			</div>
-			<a href="http://localhost:8000/woo_order" class="small-box-footer" style="color:orange;">Ir a Ordenes <i class="fas fa-arrow-circle-right"></i></a>
 		</div>
 	</div>
 
@@ -48,7 +46,6 @@
 			<div class="icon">
 				<i class="ion ion-person-add"></i>
 			</div>
-			<a href="http://localhost:8000/woo_order" class="small-box-footer" style="color:orange;">Ir a Ordenes <i class="fas fa-arrow-circle-right"></i></a>
 		</div>
 	</div>
 
@@ -62,7 +59,6 @@
 			<div class="icon">
 				<i class="ion ion-pie-graph"></i>
 			</div>
-			<a href="http://localhost:8000/woo_order" class="small-box-footer" style="color:orange;">Ir a Ordenes <i class="fas fa-arrow-circle-right"></i></a>
 		</div>
 	</div>
 
