@@ -15,7 +15,7 @@
 						<table>
 							<tr>
 								<td>
-									EDITAR TIENDA
+									<strong>EDITAR TIENDA</strong>
 								</td>
 							</tr>
 						</table>
